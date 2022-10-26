@@ -37,7 +37,7 @@ $status = $result->fetch_object();
     <!-- End of Navbar -->
     <div class="">
       <!-- Content -->
-      <h1 class="text-4xl mx-20 my-8 mt-20">Input Progress PKL</h1>
+      <h1 class="text-4xl mx-20 my-8 mt-24">Input Progress PKL</h1>
       <form class="w-full" method="POST" action="post_pkl.php">
         <!-- ditambah method apa dan action apa, button type diganti submit -->
         <div class="grid grid-cols-12 gap-4 mx-20 my-8">
