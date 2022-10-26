@@ -100,7 +100,7 @@
 
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-6">
           <div class="text-2xl justify-center mb-6 text-center">Jumlah Dosen</div>
-          <h1 class="text-4xl justify-center text-center"><?= $jumladosen ?></h1>
+          <h1 class="text-4xl justify-center text-center"><?= $jumlahdosen ?></h1>
           </div>
         </div>
 
