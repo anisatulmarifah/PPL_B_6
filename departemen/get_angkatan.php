@@ -15,6 +15,7 @@ while ($row = $result->fetch_object()) {
     echo '<td class="px-6 py-4 whitespace-nowrap">' . $i . '</td>';
     echo '<td class="px-6 py-4 whitespace-nowrap">' . $row->nama . '</td>';
     echo '<td class="px-6 py-4 whitespace-nowrap">' . $row->nim . '</td>';
+    echo '<td class="px-6 py-4 whitespace-nowrap">' . $row->semester . '</td>';
     echo '<td class="px-6 py-4 whitespace-nowrap">' . $row->angkatan . '</td>';
     echo '<tr>';
     $i++;
