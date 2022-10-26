@@ -32,7 +32,7 @@ if($cek>0){
     else if($data['status']=="departemen"){
 
         //buat session login dan username
-        $_SESSION['username'] = $username;
+        $_SESSION['nip'] = $nip_nim;
         $_SESSION['email']= $data['email'];
         //alihkan ke dashboard departemen
         header("location:departemen/dashboard_dept.php");
@@ -48,7 +48,7 @@ if($cek>0){
     else if($data['status']=="dosen"){
 
         //buat session login dan username
-        $_SESSION['username'] = $username;
+        $_SESSION['nip'] = $nip_nim;
         $_SESSION['email']= $data['email'];
         //alihkan ke dashboard dosen wali
         header("location:dosen/dashboard_dosen.php");

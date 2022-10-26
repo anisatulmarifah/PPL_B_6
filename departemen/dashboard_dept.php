@@ -2,9 +2,16 @@
 session_start();
 
 require_once('../db_login.php');
-if (!isset($_SESSION['nim'])){
-  header('Location: ../login.php');
-}
+// if (!isset($_SESSION['nip'])){
+//   header('Location: ../login.php');
+// }
+
+$nip = $_SESSION['nip'];
+
+$query = "SELECT * FROM data_departemen WHERE nip = $nip";
+$result = $db->query($query);
+
+$departemen = $result->fetch_object();
 ?>
 
 <!DOCTYPE html>

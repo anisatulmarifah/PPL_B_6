@@ -70,7 +70,6 @@ $operator = $result->fetch_object();
 
             $AKTIF = $result->fetch_object()->jumlah;
             $CUTI = $result->fetch_object()->jumlah;
-            $LAINNYA = $result->fetch_object()-$AKTIF-$CUTI;
             ?>
             <div>
               <div id="piechart"></div>
@@ -88,7 +87,7 @@ $operator = $result->fetch_object();
                   ['Status', 'Keterangan'],
                   ['Aktif', <?= $AKTIF ?>],
                   ['Cuti', <?= $CUTI ?>],
-                  ['Lainnya',<?= $LAINNYA ?>]
+                  ['Lainnya', '70']
                 ]);
                 
                   // Optional; add a title and set the width and height of the chart
