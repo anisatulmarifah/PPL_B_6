@@ -88,7 +88,7 @@ $pkl = $result->fetch_object();
         <div class="grid grid-cols-12 gap-4 mx-20 mt-4">
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-3">
             <div class="text-2xl justify-center mb-6 text-center">Semester</div>
-            <h1 class="text-3xl justify-center text-center">5</h1>
+            <h1 class="text-3xl justify-center text-center"><?= $mahasiswa->semester ?></h1>
           </div>
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-3">
             <div class="text-2xl justify-center mb-6 text-center">Status</div>
