@@ -146,12 +146,12 @@ $status = $result->fetch_object();
       <nav>
         <div class="logo">
           <i class="bx bx-menu menu-icon"></i>
-          <span class="logo-name">Dashboard</span>
+          <span class="logo-name">Data PKL</span>
         </div>
         <div class="sidebar">
           <div class="logo">
             <i class="bx bx-menu menu-icon"></i>
-            <span class="logo-name">SIAK</span>
+            <span class="logo-name">Universitas Diponegoro</span>
           </div>
   
           <div class="sidebar-content">
@@ -194,18 +194,12 @@ $status = $result->fetch_object();
             <li class="list">
               <a href="input_skripsi.php" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
-                <span class="link">Skripsi</span>
+                <span class="link">Data Skripsi</span>
               </a>
             </li>
           </ul>
   
             <div class="bottom-cotent">
-              <li class="list">
-                <a href="javascript:alert('still coming soon!')" class="nav-link">
-                  <i class="bx bx-cog icon"></i>
-                  <span class="link">Settings</span>
-                </a>
-              </li>
               <li class="list">
                 <a href="../logout.php" class="nav-link">
                   <i class="bx bx-log-out icon"></i>

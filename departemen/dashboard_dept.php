@@ -30,7 +30,7 @@ if (!isset($_SESSION['nim'])){
   <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Dashboard Departemen</span>
+        <span class="logo-name">Dashboard</span>
       </div>
       <div class="sidebar">
         <div class="logo">
