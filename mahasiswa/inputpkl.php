@@ -44,7 +44,7 @@ $status = $result->fetch_object();
             <div class="bg-white border shadow-xl rounded-lg p-8 col-span-8">
                 <div class="flex gap-12">
                     <div>
-                        <div  class="w-32 h-32 rounded-full bg-gray-500"></div>
+                      <img class="w-32 h-32 border-2 rounded-full" src="https://data.whicdn.com/images/357926627/original.jpg" alt="foto mahasiswa"></img>
                     </div>
                     <div class="w-full">
                         <div>
@@ -99,8 +99,6 @@ $status = $result->fetch_object();
                             </label>
                           </div>
                         </div>
-                        
-
                 </div>
             </div>
             <div class="col-span-4">

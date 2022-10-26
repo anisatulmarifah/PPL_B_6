@@ -144,19 +144,19 @@
     </div>
     <head> 
     <?php
- require_once('db_login.php');
- $query = "SELECT status, COUNT(status) as aktif FROM data_mahasiswa GROUP BY status";
- $result = $db->query($query);
+    require_once('../db_login.php');
+    $query = "SELECT status, COUNT(status) as aktif FROM data_mahasiswa GROUP BY status";
+    $result = $db->query($query);
 
- $AKTIF = $result->fetch_object()->aktif;
- $CUTI = $result->fetch_object()->aktif;
- $DO = $result->fetch_object()->aktif;
- $MANGKIR = $result->fetch_object()->aktif;
- $LULUS = $result->fetch_object()->aktif;
- $UNDURDIRI = $result->fetch_object()->aktif;
+    $AKTIF = $result->fetch_object()->aktif;
+    $CUTI = $result->fetch_object()->aktif;
+    $DO = $result->fetch_object()->aktif;
+    $MANGKIR = $result->fetch_object()->aktif;
+    $LULUS = $result->fetch_object()->aktif;
+    $UNDURDIRI = $result->fetch_object()->aktif;
 
 
- ?>
+    ?>
     <form class="grid grid-cols-12 gap-4 mx-27">
       <div class="p-5 col-span-5">
         <div class="bg-white shadow-md rounded-lg p-8">

@@ -12,6 +12,11 @@ $query = "SELECT * FROM data_mahasiswa WHERE nim = $nim";
 $result = $db->query($query);
 
 $mahasiswa = $result->fetch_object();
+
+$query = "SELECT * FROM skripsi WHERE nim = $nim";
+$result = $db->query($query);
+
+$skripsi = $result->fetch_object();
 ?>
 
 <!DOCTYPE html>
@@ -36,12 +41,8 @@ $mahasiswa = $result->fetch_object();
       <div class="p-5 col-span-8">
         <div class="bg-white shadow-md rounded-lg p-8">
           <div class="flex items-start gap-12">
-            <div class="bg-white shadow-md rounded-lg flex justify-center items-center w-36 h-48">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-20 h-20">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-              </svg>
+            <div class="flex">
+            <img class="w-32 h-32 border-2 rounded-full" src="https://data.whicdn.com/images/357926627/original.jpg" alt="foto mahasiswa"></img>
             </div>
             <div class="w-6/12">
               <div>
@@ -58,12 +59,13 @@ $mahasiswa = $result->fetch_object();
                   >Status Skripsi</label
                   >
                   <select
+                  id="status" name="status",
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
-                  <option selected>Pilih Status</option>
-                  <option value="lulus">Lulus</option>
-                  <option value="belum lulus">Belum Lulus</option>
-                  </select>
+                  <option default>Pilih Status Skripsi</option>
+                  <option <?= ($skripsi->status == 'lulus') ? 'selected' : '' ?> value="lulus">Lulus</option>
+                  <option <?= ($skripsi->status == 'tidak lulus') ? 'selected' : '' ?> value="tidak lulus">Tidak Lulus</option>
+                </select>
               </div>
               <div class="mb-2 w-full">
                 <label
@@ -71,14 +73,15 @@ $mahasiswa = $result->fetch_object();
                 >Nilai Skripsi</label
                 >
                 <select
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                >
-                <option selected>Pilih Nilai</option>
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-                <option value="d">D</option>
-                <option value="e">E</option>
+                  id="nilai_skripsi" name="nilai_skripsi",
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  >
+                  <option default>Pilih Nilai Skripsi</option>
+                  <option <?= ($skripsi->nilai == 'A') ? 'selected' : '' ?> value="A">A</option>
+                  <option <?= ($skripsi->nilai == 'B') ? 'selected' : '' ?> value="B">B</option>
+                  <option <?= ($skripsi->nilai == 'C') ? 'selected' : '' ?> value="C">C</option>
+                  <option <?= ($skripsi->nilai == 'D') ? 'selected' : '' ?> value="D">D</option>
+                  <option <?= ($skripsi->nilai == 'E') ? 'selected' : '' ?> value="E">E</option>
                 </select>
               </div>
               <div class="mb-2 w-full">
@@ -87,18 +90,19 @@ $mahasiswa = $result->fetch_object();
                 >Lama Studi (semester)</label
                 >
                 <select
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                >
-                <option selected>Pilih Semester</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
+                  id="lama_studi" name="lama_studi",
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  >
+                  <option default>Pilih Semester</option>
+                  <option <?= ($skripsi->lama_studi == '6') ? 'selected' : '' ?> value="6">6</option>
+                  <option <?= ($skripsi->lama_studi == '7') ? 'selected' : '' ?> value="7">7</option>
+                  <option <?= ($skripsi->lama_studi == '8') ? 'selected' : '' ?> value="8">8</option>
+                  <option <?= ($skripsi->lama_studi == '9') ? 'selected' : '' ?> value="9">9</option>
+                  <option <?= ($skripsi->lama_studi == '10') ? 'selected' : '' ?> value="10">10</option>
+                  <option <?= ($skripsi->lama_studi == '11') ? 'selected' : '' ?> value="11">11</option>
+                  <option <?= ($skripsi->lama_studi == '12') ? 'selected' : '' ?> value="12">12</option>
+                  <option <?= ($skripsi->lama_studi == '13') ? 'selected' : '' ?> value="13">13</option>
+                  <option <?= ($skripsi->lama_studi == '14') ? 'selected' : '' ?> value="14">14</option>
                 </select>
               </div>
               <div class="mb-2 w-full">
@@ -106,7 +110,7 @@ $mahasiswa = $result->fetch_object();
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >Tanggal Sidang</label>
                   <input
-                  type="date"
+                  type="date" id="tanggal_sidang" name="tanggal_sidang" value=<?= $skripsi->tanggal_sidang ?>
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
                   </select>
@@ -131,7 +135,7 @@ $mahasiswa = $result->fetch_object();
           </div>
         </div>
         <div class="flex justify-end mt-8">
-          <button type="button"
+          <button type="submit"
             class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-12 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
             Save
           </button>
