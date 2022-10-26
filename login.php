@@ -18,7 +18,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
   </head>
   <body>
-    <!-- Navbar -->
+    <!-- Navbar atul galak -->
     
     <!-- End of Navbar -->
     <div class="flex flex-col max-w-4xl mx-auto mt-16">
