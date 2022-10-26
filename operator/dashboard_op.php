@@ -41,7 +41,7 @@ $operator = $result->fetch_object();
         <div class="grid grid-cols-12 gap-4 mx-20 mt-4">
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-7">
             <div class="flex w-full justify-center items-center">
-              <img class="object-center w-32 h-32 border-2 rounded-full" src="/Users/fartisfr/Documents/mahasiswa.jpg" alt="foto operator">
+              <img class="object-center w-32 h-32 border-2 rounded-full" src="https://i.pinimg.com/474x/91/ec/4e/91ec4e4fa3c4b40c906e72045854a964.jpg" alt="foto operator">
             </div>
 
             <div class="w-full">

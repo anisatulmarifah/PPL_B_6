@@ -428,7 +428,7 @@ require_once('../db_login.php')
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
-  <script src="../ajax.js"></script>
+  <script src="ajax.js"></script>
   <script>
     const angkatan = document.getElementsByName('filter-radio');
     const filter2022 = angkatan[0];
