@@ -15,8 +15,13 @@ require_once('../db_login.php')
 
     <!-- TAMBAH -->
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script>
+      $(document).ready(function() {
+        $('#table').DataTable();
+      });
+  </script>
 
 </head>
 
@@ -434,37 +439,9 @@ require_once('../db_login.php')
 
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 
-  <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
-  <script src="ajax.js"></script>
-  <script>
-    const angkatan = document.getElementsByName('filter-radio');
-    const filter2022 = angkatan[0];
-    const filter2021 = angkatan[1];
-    const filter2020 = angkatan[2];
-    const filter2019 = angkatan[3];
-    const filter2018 = angkatan[4];
 
-    filter2022.onchange = function() {
-      getAngkatan('2022', 'list-mahasiswa');
-    }
-    filter2021.onchange = function() {
-      getAngkatan('2021', 'list-mahasiswa');
-    }
-    filter2020.onchange = function() {
-      getAngkatan('2020', 'list-mahasiswa');
-    }
-    filter2019.onchange = function() {
-      getAngkatan('2019', 'list-mahasiswa');
-    }
-    filter2018.onchange = function() {
-      getAngkatan('2018', 'list-mahasiswa');
-    }
-  </script>
-    <script>
-      $(document).ready(function() {
-        $('#table').DataTable();
-      });
-    </script>
+  
+  
 </body>
 
 </html>

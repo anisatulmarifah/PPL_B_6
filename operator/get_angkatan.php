@@ -3,11 +3,11 @@ require_once('../db_login.php');
 
 $angkatan = $_GET['angkatan'];
 
-$query = "SELECT * FROM data_mahasiswa as m, pkl, skripsi, verifikasi WHERE m.angkatan = $angkatan 
+$query1 = "SELECT * FROM data_mahasiswa as m, pkl, skripsi, verifikasi WHERE m.angkatan = $angkatan 
 and m.nim = pkl.nim
 and m.nim = skripsi.nim
 and m.nim = verifikasi.nim";
-$result = $db->query($query);
+$result = $db->query($query1);
 if (!$result) {
     die("Could not query the database: <br>" . $db->error . "<br>Query: " . $query);
 }
