@@ -38,7 +38,7 @@ $mahasiswa = $result->fetch_object();
         <div class="bg-white border shadow-xl mx-20 rounded-lg p-8">
           <div class="flex gap-12">
             <div>
-              <img class="w-32 h-32 rounded-full" src="/Users/fartisfr/Documents/mahasiswa.jpg" alt="foto mahasiswa">
+              <img class="w-32 h-32 border-2 rounded-full" src="https://data.whicdn.com/images/357926627/original.jpg" alt="foto mahasiswa"></img>
             </div>
 
             <div class="w-full">
