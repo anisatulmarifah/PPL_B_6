@@ -116,3 +116,7 @@ nav.open ~ .overlay {
   font-size: 45px;
   margin-top: 60px;
 }
+
+.dataTables_wrapper .dataTables_length select {
+  width: 64px;
+}
