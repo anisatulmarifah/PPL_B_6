@@ -68,8 +68,8 @@ $operator = $result->fetch_object();
             $query = "SELECT status, COUNT(*) AS jumlah FROM data_mahasiswa GROUP BY status";
             $result = $db->query($query);
 
-            $AKTIF = $result->fetch_object()->AKTIF;
-            $CUTI = $result->fetch_object()->CUTI;
+            $AKTIF = $result->fetch_object()->jumlah;
+            $CUTI = $result->fetch_object()->jumlah;
             $LAINNYA = $result->fetch_object()-$AKTIF-$CUTI;
             ?>
             <div>
