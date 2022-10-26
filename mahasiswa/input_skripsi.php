@@ -37,7 +37,7 @@ $skripsi = $result->fetch_object();
     <!-- Content -->
     
     <h1 class="text-4xl font-medium mt-24 mx-32 mb-2 my-8">Input Progress Skripsi</h1>
-    <form class="grid grid-cols-12 gap-4 mx-28">
+    <form class="grid grid-cols-12 gap-4 mx-28" method="POST" action="post_skripsi.php">
       <div class="p-5 col-span-8">
         <div class="bg-white shadow-md rounded-lg p-8">
           <div class="flex items-start gap-12">
