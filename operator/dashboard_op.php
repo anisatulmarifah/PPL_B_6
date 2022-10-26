@@ -86,9 +86,9 @@ $operator = $result->fetch_object();
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
                   ['Status', 'Keterangan'],
-                  ['Aktif', 983],
-                  ['Cuti', 90],
-                  ['Lainnya',30]
+                  ['Aktif', <?= $AKTIF ?>],
+                  ['Cuti', <?= $CUTI ?>],
+                  ['Lainnya',<?= $LAINNYA ?>]
                 ]);
                 
                   // Optional; add a title and set the width and height of the chart
