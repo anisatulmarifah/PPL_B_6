@@ -80,7 +80,7 @@ $dosen = $result->fetch_object();
             <script>
               const ctx = document.getElementById("grafikMahasiswaLulusPKL");
               const myChart = new Chart(ctx, {
-                type: "chart",
+                type: "bar",
                 data: {
                   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                   datasets: [
@@ -126,7 +126,7 @@ $dosen = $result->fetch_object();
             <script>
               const ctxx = document.getElementById("grafikMahasiswaSkripsi");
               const myChartskripsi = new Chart(ctxx, {
-                type: "chart",
+                type: "bar",
                 data: {
                   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                   datasets: [
