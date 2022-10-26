@@ -9,6 +9,7 @@ $result = $db->query($query);
 $mahasiswa = $result->fetch_object();
 
 
+
 // if ($result->num_rows > 0) {
 //     $row = $result->fetch_object();
 //     $email = $row->email;
@@ -188,7 +189,7 @@ $mahasiswa = $result->fetch_object();
                     >Nama Lengkap</label
                   >
                   <input
-                    type="text" value="<?= $mahasiswa->nama ?>"
+                    type="text" value="<?= $mahasiswa->nama ?>" readonly
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
                 </div>
@@ -199,6 +200,7 @@ $mahasiswa = $result->fetch_object();
                   >
                   <input
                     type="text"
+                    value="<?= $mahasiswa->email ?>"
                     id="email" name="email",
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
@@ -211,7 +213,7 @@ $mahasiswa = $result->fetch_object();
                   >NIM</label
                 >
                 <input
-                  type="text" name="nim" value="<?= $mahasiswa->nim ?>"
+                  type="text" name="nim" value="<?= $mahasiswa->nim ?>" readonly
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
                 </div>
@@ -222,7 +224,7 @@ $mahasiswa = $result->fetch_object();
                   >
                   <input
                     type="text"
-                    id="no_hp" name="no_hp",
+                    id="nomor_hp" name="nomor_hp" value="<?= $mahasiswa->nomor_hp ?>"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
                 </div>
@@ -234,6 +236,7 @@ $mahasiswa = $result->fetch_object();
                 >
                 <input
                   type="text"
+                  id="doswal" name="doswal" value="<?= $mahasiswa->doswal ?>" readonly
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </div>
@@ -245,7 +248,7 @@ $mahasiswa = $result->fetch_object();
                 >
                 <input
                   type="text"
-                  id="alamat" name="alamat",
+                  id="alamat" name="alamat" value="<?= $mahasiswa->alamat ?>"
                   class="p-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </div>
@@ -261,10 +264,10 @@ $mahasiswa = $result->fetch_object();
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                     <option default>Pilih Provinsi</option>
-                    <option <?= ($provinsi->provinsi =='jawa barat') ? 'selected' : '' ?> value="jawa barat">Jawa Barat</option>
-                    <option <?= ($provinsi->provinsi =='jawa tengah') ? 'selected' : '' ?> value="jawa tengah">Jawa Tengah</option>
-                    <option <?= ($provinsi->provinsi =='jawa timur') ? 'selected' : '' ?> value="jawa timur">Jawa Timur</option>
-                    <option <?= ($provinsi->provinsi =='dki jakarta') ? 'selected' : '' ?> value="dki jakarta">DKI Jakarta</option>
+                    <option <?= ($mahasiswa->provinsi =='jawa barat') ? 'selected' : '' ?> value="jawa barat">Jawa Barat</option>
+                    <option <?= ($mahasiswa->provinsi =='jawa tengah') ? 'selected' : '' ?> value="jawa tengah">Jawa Tengah</option>
+                    <option <?= ($mahasiswa->provinsi =='jawa timur') ? 'selected' : '' ?> value="jawa timur">Jawa Timur</option>
+                    <option <?= ($mahasiswa->provinsi =='dki jakarta') ? 'selected' : '' ?> value="dki jakarta">DKI Jakarta</option>
                   </select>
                 </div>
                 <div class="w-6/12">
@@ -273,19 +276,19 @@ $mahasiswa = $result->fetch_object();
                     >Kabupaten/Kota</label
                   >
                   <select
-                    id="kab_kota" name="kab_kota",
+                    id="kabupaten_kota" name="kabupaten_kota",
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                     <option default>Pilih Kabupaten/Kota</option>
-                    <option <?= ($kab_kota->kab_kota == 'bandung') ? 'selected' : '' ?> value="bandung">Bandung</option>
-                    <option <?= ($kab_kota->kab_kota == 'bekasi') ? 'selected' : '' ?> value="bekasi">Bekasi</option>
-                    <option <?= ($kab_kota->kab_kota == 'bogor') ? 'selected' : '' ?> value="bogor">Bogor</option>
-                    <option <?= ($kab_kota->kab_kota == 'depok') ? 'selected' : '' ?> value="depok">Depok</option>
-                    <option <?= ($kab_kota->kab_kota == 'jakarta') ? 'selected' : '' ?> value="jakarta">Jakarta</option>
-                    <option <?= ($kab_kota->kab_kota == 'semarang') ? 'selected' : '' ?> value="semarang">Semarang</option>
-                    <option <?= ($kab_kota->kab_kota == 'surabaya') ? 'selected' : '' ?> value="surabaya">Surabaya</option>
-                    <option <?= ($kab_kota->kab_kota == 'yogyakarta') ? 'selected' : '' ?> value="yogyakarta">Yogyakarta</option>
-                    <option <?= ($kab_kota->kab_kota == 'solo') ? 'selected' : '' ?> value="solo">Solo</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'bandung') ? 'selected' : '' ?> value="bandung">Bandung</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'bekasi') ? 'selected' : '' ?> value="bekasi">Bekasi</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'bogor') ? 'selected' : '' ?> value="bogor">Bogor</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'depok') ? 'selected' : '' ?> value="depok">Depok</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'jakarta') ? 'selected' : '' ?> value="jakarta">Jakarta</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'semarang') ? 'selected' : '' ?> value="semarang">Semarang</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'surabaya') ? 'selected' : '' ?> value="surabaya">Surabaya</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'yogyakarta') ? 'selected' : '' ?> value="yogyakarta">Yogyakarta</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'solo') ? 'selected' : '' ?> value="solo">Solo</option>
                   </select>
                 </div>
               </div>
