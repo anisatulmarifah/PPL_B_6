@@ -322,18 +322,25 @@ require_once('../db_login.php');
             
             
             <li class="list">
-              <a href="manajemen_akun.php" class="nav-link">
+              <a href="data_mahasiswa.php" class="nav-link">
                 <i class="bx bx-spreadsheet icon" ></i>
-                <span class="link">Manajemen Akun</span>
+                <span class="link">Manajemen Data Mahasiswa</span>
               </a>
             </li>
             
             <li class="list">
               <a href="data_dosen.php" class="nav-link">
                 <i class="bx bx-paste icon" ></i>
-                <span class="link">Data Dosen</span>
+                <span class="link">Manajemen Data Dosen</span>
               </a>
             </li>
+            <li class="list">
+                <a href="input_data.php" class="nav-link">
+                  <i class="bx bx-folder-open icon"></i>
+                  <span class="link">Input Data Mahasiswa</span>
+                </a>
+              </li>
+
           </ul>
 
           <div class="bottom-cotent">
