@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-<link rel ="styleshet" href="style.css"/>
+
   <head>
+  <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -11,110 +12,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
   </head>
   <body>
-    <!-- Navbar -->
-    <link rel ="styleshet" href="style.css"/>
-    <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <!--<title>Sidebar Menu | Side Navigation Bar</title>-->
-      <!-- CSS -->
-      
-      <!-- Boxicons CSS 11111111111 -->
-      <link
-        href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
-        rel="stylesheet"
-      />
-    </head>
-    <body>
-      <nav>
-        <div class="logo">
-          <i class="bx bx-menu menu-icon"></i>
-          <span class="logo-name">Update Data Mahasiswa</span>
-        </div>
-        <div class="sidebar">
-          <div class="logo">
-            <i class="bx bx-menu menu-icon"></i>
-            <span class="logo-name">Universitas Diponegoro</span>
-          </div>
-  
-          <div class="sidebar-content">
-            <ul class="lists">
-              <li class="list">
-                <a href="dashboard_mhs.html" class="nav-link">
-                  <i class="bx bx-home-alt icon"></i>
-                  <span class="link">Home</span>
-                </a>
-              </li>
-              
-              
-              <li class="list">
-                <a href="update_data.php" class="nav-link">
-                  <i class="bx bx-spreadsheet icon" ></i>
-                  <span class="link">Profil</span>
-                </a>
-              </li>
-             
-              <div class="list"> 
-               <a href="inputirs.html" class="nav-link"> 
-                  <i class="bx bx-pie-chart-alt-2 icon"></i>
-                  <span class="link">Data IRS</span>  
-                </a>
-                </a>
-               </div>
-              <li class="list">
-                <a href="inputkhs.html" class="nav-link">
-                  <i class="bx bx-paste icon" ></i>
-                  <span class="link">Data KHS</span>
-                </a>
-              </li>
-              <li class="list">
-                <a href="inputpkl.html" class="nav-link">
-                  <i class="bx bx-folder-open icon"></i>
-                  <span class="link">Data PKL</span>
-                </a>
-              </li>
-            
-            <li class="list">
-              <a href="input_skripsi.html" class="nav-link">
-                <i class="bx bx-folder-open icon"></i>
-                <span class="link">Data Skripsi</span>
-              </a>
-            </li>
-          </ul>
-  
-            <div class="bottom-cotent">
-              <li class="list">
-                <a href="javascript:alert('still coming soon!')" class="nav-link">
-                  <i class="bx bx-log-out icon"></i>
-                  <span class="link">Logout</span>
-                </a>
-              </li>
-            </div>
-          </div>
-        </div>
-      </nav>
-  
-      <section class="overlay"></section>
-  
-      <script>
-        const navBar = document.querySelector("nav"),
-          menuBtns = document.querySelectorAll(".menu-icon"),
-          overlay = document.querySelector(".overlay");
-  
-        menuBtns.forEach((menuBtn) => {
-          menuBtn.addEventListener("click", () => {
-            navBar.classList.toggle("open");
-          });
-        });
-  
-        overlay.addEventListener("click", () => {
-          navBar.classList.remove("open");
-        });
-      </script>
-    </body>
-    <head>
 
-    <!-- End of Navbar -->
     <div class="flex flex-col max-w-4xl mx-auto mt-16">
       <!-- Content -->
       <form class="w-full">
@@ -306,4 +204,111 @@
       <!-- End of Content -->
     </div>
     
+    
+    <head>
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<title>Sidebar Menu | Side Navigation Bar</title>-->
+    <!-- CSS -->
+    
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <i class="bx bx-menu menu-icon"></i>
+        <span class="logo-name">Dashboard</span>
+      </div>
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name">Universitas Diponegoro</span>
+        </div>
+
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list">
+              <a href="dashboard_mhs.php" class="nav-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Home</span>
+              </a>
+            </li>
+            
+            
+            <li class="list">
+              <a href="update_data.php" class="nav-link">
+                <i class="bx bx-spreadsheet icon" ></i>
+                <span class="link">Profil</span>
+              </a>
+            </li>
+           
+            <div class="list"> 
+             <a href="inputirs.php" class="nav-link"> 
+                <i class="bx bx-pie-chart-alt-2 icon"></i>
+                <span class="link">Data IRS</span>  
+              </a>
+              </a>
+             </div>
+            <li class="list">
+              <a href="inputkhs.php" class="nav-link">
+                <i class="bx bx-paste icon" ></i>
+                <span class="link">Data KHS</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="inputpkl.php" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
+                <span class="link"></span>
+              </a>
+            </li>
+          
+          <li class="list">
+            <a href="input_skripsi.php" class="nav-link">
+              <i class="bx bx-folder-open icon"></i>
+              <span class="link"></span>
+            </a>
+          </li>
+        </ul>
+
+          <div class="bottom-cotent">
+            <li class="list">
+              <a href="../logout.php" class="nav-link">
+                <i class="bx bx-log-out icon"></i>
+                <span class="link">Logout</span>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="overlay"></section>
+
+    <script>
+      const navBar = document.querySelector("nav"),
+        menuBtns = document.querySelectorAll(".menu-icon"),
+        overlay = document.querySelector(".overlay");
+
+      menuBtns.forEach((menuBtn) => {
+        menuBtn.addEventListener("click", () => {
+          navBar.classList.toggle("open");
+        });
+      });
+
+      overlay.addEventListener("click", () => {
+        navBar.classList.remove("open");
+      });
+    </script>
+  </body>
+  <head>
+
+  <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+</body>
+</html>
 </html>
