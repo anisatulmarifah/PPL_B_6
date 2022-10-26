@@ -12,9 +12,16 @@ require_once('../db_login.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+<!-- TAMBAH -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  
 </head>
 
-<body>
+  <body>
+
   <!-- Navbar -->
 
   <!-- End of Navbar -->
@@ -24,7 +31,7 @@ require_once('../db_login.php');
     <div class="flex justify-between mx-20 mt-8">
 
       <!-- search bar -->
-      <div class="flex justify-right mb-4">
+      <!-- <div class="flex justify-right mb-4">
       <label for="table-search" class="sr-only">Search</label>
         <div class="relative">
             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -32,14 +39,12 @@ require_once('../db_login.php');
             </div>
             <input type="text" id="table-search" class="block p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for mahasiswa">
         </div>
-      </div>
+      </div> -->
       <!-- end of search -->
     </div>   
 
-
-
-    <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg p-6">
+      <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-4">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="py-3 px-6">
@@ -60,27 +65,35 @@ require_once('../db_login.php');
 
         <!-- ambil data dari database -->
         <?php
-          $sql = "SELECT * FROM data_dosen";
-          $result = $db->query($sql);
-          $nomor = 0;
+          $query_param = $_SERVER["QUERY_STRING"];
+          $sql = "";
+          if ($query_param) {
+            $name = strtolower(explode("=", $query_param)[1]);
+            $sql = "SELECT * FROM data_dosen WHERE LOWER(nama) LIKE '%$name%'";
+          } else {
+            $sql = "SELECT * FROM data_dosen";
+          }
 
-          if(!$result){
-          die("Invalid query: " . $db->error);
-        }
-        ?>
+          $result = $db->query($sql);
+
+          if (!$result) {
+            die("Invalid query: " . $db->error);
+          }
+          ?>
         <!-- udah ambil data -->
         
        
-            <?php 
-              while($row = $result->fetch_assoc()){
-                $nomor++;
-                echo "<tr>
-                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$nomor. "</td> 
-                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["nama"]. "</td>
-                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["nip"]. "</td>
+          <?php 
+          $no = 1;
+          while ($row = $result->fetch_assoc()) {
+            echo "<tr> 
+                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $no . "</td>
+                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["nama"] . "</td>
+                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["nip"] . "</td>
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 font-medium text-red-600 dark:text-red-500 hover:underline' data-modal-toggle='deleteModal'>Remove</td>    
                   </tr>";
-              }
+            $no = $no + 1;
+          }
               ?>
             </td>
         </tbody>
@@ -335,9 +348,11 @@ require_once('../db_login.php');
         navBar.classList.remove("open");
       });
     </script>
-  </body>
-  <head>
-
+    <script>
+      $(document).ready(function() {
+        $('#table').DataTable();
+      });
+    </script>
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </body>
 

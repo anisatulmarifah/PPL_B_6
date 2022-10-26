@@ -44,8 +44,6 @@ require_once('../db_login.php');
       <!-- end of search -->
     </div>
 
-
-
     <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg p-6">
       <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-4">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -58,9 +56,6 @@ require_once('../db_login.php');
             </th>
             <th scope="col" class="py-3 px-6">
               NIP
-            </th>
-            <th scope="col" class="py-3 px-6">
-              Action
             </th>
           </tr>
         </thead>
@@ -93,7 +88,6 @@ require_once('../db_login.php');
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $no . "</td>
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["nama"] . "</td>
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["nip"] . "</td>
-                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 font-medium text-red-600 dark:text-red-500 hover:underline' data-modal-toggle='deleteModal'>Remove</td>    
                   </tr>";
             $no = $no + 1;
           }
