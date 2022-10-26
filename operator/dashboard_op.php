@@ -63,6 +63,15 @@ $operator = $result->fetch_object();
 
           <div class="bg-white border shadow-xl rounded-lg p-6 col-span-5">
             <div class="text-2xl justify-center mb-6 text-center">Data Mahasiswa</div>
+            <?php 
+            require_once('../db_login.php');
+            $query = "SELECT status, COUNT(*) AS jumlah FROM data_mahasiswa GROUP BY status";
+            $result = $db->query($query);
+
+            $AKTIF = $result->fetch_object()->AKTIF;
+            $CUTI = $result->fetch_object()->CUTI;
+            $LAINNYA = $result->fetch_object()-$AKTIF-$CUTI;
+            ?>
             <div>
               <div id="piechart"></div>
   
