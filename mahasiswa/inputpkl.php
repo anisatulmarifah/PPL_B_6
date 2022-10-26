@@ -99,8 +99,6 @@ $status = $result->fetch_object();
                             </label>
                           </div>
                         </div>
-                        
-
                 </div>
             </div>
             <div class="col-span-4">
