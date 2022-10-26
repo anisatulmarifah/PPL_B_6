@@ -70,6 +70,11 @@ $operator = $result->fetch_object();
 
             $AKTIF = $result->fetch_object()->jumlah;
             $CUTI = $result->fetch_object()->jumlah;
+            $MANGKIR = $result->fetch_object()->jumlah;
+            $MENINGGALDUNIA = $result->fetch_object()->jumlah;
+            $LULUS = $result->fetch_object()->jumlah;
+            $UNDURDIRI = $result->fetch_object()->jumlah;
+            $DO = $result->fetch_object()->jumlah;
             ?>
             <div>
               <div id="piechart"></div>
@@ -87,7 +92,12 @@ $operator = $result->fetch_object();
                   ['Status', 'Keterangan'],
                   ['Aktif', <?= $AKTIF ?>],
                   ['Cuti', <?= $CUTI ?>],
-                  ['Lainnya', '70']
+                  ['Mangkir', <?= $MANGKIR ?>],
+                  ['Meninggal Dunia', <?= $MENINGGALDUNIA ?>],
+                  ['Lulus', <?= $LULUS ?>],
+                  ['Undur Diri', <?= $UNDURDIRI ?>],
+                  ['DO', <?= $DO ?>]
+                  
                 ]);
                 
                   // Optional; add a title and set the width and height of the chart

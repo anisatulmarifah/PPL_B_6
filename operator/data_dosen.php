@@ -86,6 +86,9 @@ require_once('../db_login.php');
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="py-3 px-6">
+              No
+            </th>
+            <th scope="col" class="py-3 px-6">
               Nama
             </th>
             <th scope="col" class="py-3 px-6">
@@ -102,6 +105,7 @@ require_once('../db_login.php');
         <?php
           $sql = "SELECT * FROM data_dosen";
           $result = $db->query($sql);
+          $nomor = 0;
 
           if(!$result){
           die("Invalid query: " . $db->error);
@@ -112,7 +116,9 @@ require_once('../db_login.php');
        
             <?php 
               while($row = $result->fetch_assoc()){
-                echo "<tr> 
+                $nomor++;
+                echo "<tr>
+                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$nomor. "</td> 
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["nama"]. "</td>
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["nip"]. "</td>
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 font-medium text-red-600 dark:text-red-500 hover:underline' data-modal-toggle='deleteModal'>Remove</td>    
