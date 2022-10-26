@@ -150,7 +150,7 @@
   <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Data Mahasiswa Skripsi</span>
+        <span class="logo-name">Data Mahasiswa PKL</span>
       </div>
       <div class="sidebar">
         <div class="logo">
@@ -191,7 +191,7 @@
             <li class="list">
               <a href="progress.php" class="nav-link">
                 <i class="bx bx-paste icon" ></i>
-                <span class="link">Progres Studi Mahasiswa</span>
+                <span class="link">Progress Studi Mahasiswa</span>
               </a>
             </li>
             <li class="list">
@@ -203,12 +203,6 @@
           </ul>
 
           <div class="bottom-cotent">
-            <li class="list">
-              <a href="javascript:alert('still coming soon!')" class="nav-link">
-                <i class="bx bx-cog icon"></i>
-                <span class="link">Settings</span>
-              </a>
-            </li>
             <li class="list">
               <a href="../logout.php" class="nav-link">
                 <i class="bx bx-log-out icon"></i>
