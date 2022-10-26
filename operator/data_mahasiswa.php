@@ -193,18 +193,13 @@ require_once('../db_login.php')
 
               if(mysqli_num_rows($query_run)>0){
                 $nim = mysqli_fetch_array($query_run);
-                ?>
-
-                  <form method = "POST">
-                  
-              </form>
-                  <?php
-              }
-              else{
-                echo "<h4> no id found </h4>";
               }
             }
-            ?>
+                ?>
+                
+
+
+
             <div class="p-6 space-y-6">
               <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 sm:col-span-6">
@@ -433,7 +428,7 @@ require_once('../db_login.php')
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
-  <script src="ajax.js"></script>
+  <script src="../ajax.js"></script>
   <script>
     const angkatan = document.getElementsByName('filter-radio');
     const filter2022 = angkatan[0];

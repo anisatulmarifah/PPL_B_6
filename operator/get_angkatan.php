@@ -24,10 +24,15 @@ while ($row = $result->fetch_object()) {
     echo '<td class="px-6 py-4 whitespace-nowrap">' . $row->status_skripsi . '</td>';
     echo '<td class="px-6 py-4 whitespace-nowrap">' . $row->status_verifikasi . '</td>';
     echo '<td class="py-4 px-6 space-x-4 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit  </a>
+                    <a href="" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit  </a>
                     <a href="#" type="button" data-modal-toggle="detailModal" class="font-medium text-green-600 dark:text-green-500 hover:underline">Detail  </a>
                     <button class="font-medium text-red-600 dark:text-red-500 hover:underline" type="button" data-modal-toggle="deleteModal">Remove</button>
-                  </td>';
+                  </td>'
+                  ;
+
+    
     $i++;
 }
 ?>
+
+
