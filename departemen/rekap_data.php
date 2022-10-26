@@ -28,7 +28,7 @@
   <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Rekap Data Mahasiswa</span>
+        <span class="logo-name">Data Mahasiswa Skripsi</span>
       </div>
       <div class="sidebar">
         <div class="logo">
@@ -69,7 +69,7 @@
             <li class="list">
               <a href="progress.php" class="nav-link">
                 <i class="bx bx-paste icon" ></i>
-                <span class="link">Progress Studi Mahasiswa</span>
+                <span class="link">Progres Studi Mahasiswa</span>
               </a>
             </li>
             <li class="list">
@@ -81,6 +81,12 @@
           </ul>
 
           <div class="bottom-cotent">
+            <li class="list">
+              <a href="javascript:alert('still coming soon!')" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link">Settings</span>
+              </a>
+            </li>
             <li class="list">
               <a href="../logout.php" class="nav-link">
                 <i class="bx bx-log-out icon"></i>
@@ -137,33 +143,47 @@
   </div>
     </div>
     <head> 
+    <?php
+ require_once('db_login.php');
+ $query = "SELECT status, COUNT(status) as aktif FROM data_mahasiswa GROUP BY status";
+ $result = $db->query($query);
+
+ $AKTIF = $result->fetch_object()->aktif;
+ $CUTI = $result->fetch_object()->aktif;
+ $DO = $result->fetch_object()->aktif;
+ $MANGKIR = $result->fetch_object()->aktif;
+ $LULUS = $result->fetch_object()->aktif;
+ $UNDURDIRI = $result->fetch_object()->aktif;
+
+
+ ?>
     <form class="grid grid-cols-12 gap-4 mx-27">
       <div class="p-5 col-span-5">
         <div class="bg-white shadow-md rounded-lg p-8">
           <div class="grid grid-cols-3 gap-12">
             <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center  items-center w-36 h-48 p-2">
               <h1 class="text-lg font-semibold">Aktif</h1>
-              <h2 class="text-5xl font-bold ">150</h2>
+              <h2 class="text-5xl font-bold "><?= $AKTIF?></h2>
             </div>
             <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
               <h1 class="text-lg font-semibold">Cuti</h1>
-              <h2 class="text-5xl font-bold ">5</h2>
+              <h2 class="text-5xl font-bold "><?= $CUTI?></h2>
             </div>
             <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
               <h1 class="text-lg font-semibold">DO</h1>
-              <h2 class="text-5xl font-bold ">2</h2>
+              <h2 class="text-5xl font-bold "><?= $DO?></h2>
             </div>
             <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
               <h1 class="text-lg font-semibold">Mangkir</h1>
-              <h2 class="text-5xl font-bold ">10</h2>
+              <h2 class="text-5xl font-bold "><?= $MANGKIR?></h2>
             </div>
             <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
               <h1 class="text-lg font-semibold">Lulus</h1>
-              <h2 class="text-5xl font-bold ">0</h2>
+              <h2 class="text-5xl font-bold "><?= $LULUS?></h2>
             </div>
             <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
               <h1 class="text-lg font-semibold">Meninggal Dunia</h1>
-              <h2 class="text-5xl font-bold ">0</h2>
+              <h2 class="text-5xl font-bold "><?= $UNDURDIRI?></h2>
             </div>
             
           </div>

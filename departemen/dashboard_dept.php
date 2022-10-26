@@ -1,19 +1,3 @@
-<?php
-session_start();
-
-require_once('../db_login.php');
-// if (!isset($_SESSION['nip'])){
-//   header('Location: ../login.php');
-// }
-
-$nip = $_SESSION['nip'];
-
-$query = "SELECT * FROM data_departemen WHERE nip = $nip";
-$result = $db->query($query);
-
-$departemen = $result->fetch_object();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <div class = "content">
@@ -27,7 +11,7 @@ $departemen = $result->fetch_object();
     <!--<title>Sidebar Menu | Side Navigation Bar</title>-->
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
-    <!-- Boxicons CSS hhhhh-->
+    <!-- Boxicons CSS -->
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
@@ -37,7 +21,7 @@ $departemen = $result->fetch_object();
   <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Dashboard</span>
+        <span class="logo-name">Data Mahasiswa Skripsi</span>
       </div>
       <div class="sidebar">
         <div class="logo">
@@ -78,7 +62,7 @@ $departemen = $result->fetch_object();
             <li class="list">
               <a href="progress.php" class="nav-link">
                 <i class="bx bx-paste icon" ></i>
-                <span class="link">Progress Studi Mahasiswa</span>
+                <span class="link">Progres Studi Mahasiswa</span>
               </a>
             </li>
             <li class="list">
@@ -90,6 +74,12 @@ $departemen = $result->fetch_object();
           </ul>
 
           <div class="bottom-cotent">
+            <li class="list">
+              <a href="javascript:alert('still coming soon!')" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link">Settings</span>
+              </a>
+            </li>
             <li class="list">
               <a href="../logout.php" class="nav-link">
                 <i class="bx bx-log-out icon"></i>
@@ -124,9 +114,19 @@ $departemen = $result->fetch_object();
 <!--card-->
 <section class="page-contain">
  <link rel="stylesheet" href="card.css" />
+ <?php
+ require_once('db_login.php');
+ $query = "SELECT status, COUNT(status) as aktif FROM data_mahasiswa GROUP BY status";
+ $result = $db->query($query);
+
+ $AKTIF = $result->fetch_object()->aktif;
+ $CUTI = $result->fetch_object()->aktif;
+ ?>
+
+
  <a href="javascript:alert('still coming soon!')" class="data-card">
 
-   <h3>600</h3>
+   <h3><?= $AKTIF?></h3>
    <h4>Jumlah Mahasiswa Aktif</h4>
    <span class="link-text">
      View More
@@ -136,7 +136,7 @@ $departemen = $result->fetch_object();
    </span>
  </a>
  <a href="javascript:alert('still coming soon!')" class="data-card">
-   <h3>20</h3>
+   <h3><?= $CUTI?></h3>
    <h4>Jumlah Mahasiswa Cuti</h4>
    
    <span class="link-text">
@@ -241,6 +241,19 @@ $departemen = $result->fetch_object();
  </body>
  <!-- Chart Configuration -->
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <?php
+ require_once('db_login.php');
+ $query = "SELECT angkatan, COUNT(nim) as jml FROM data_mahasiswa GROUP BY angkatan";
+ $result = $db->query($query);
+
+ $angkatan2016 = $result->fetch_object()->jml;
+ $angkatan2017 = $result->fetch_object()->jml;
+ $angkatan2018 = $result->fetch_object()->jml;
+ $angkatan2019 = $result->fetch_object()->jml;
+ $angkatan2020 = $result->fetch_object()->jml;
+ $angkatan2021 = $result->fetch_object()->jml;
+
+ ?>
  <script>
    const ctx = document.getElementById("grafikMahasiswaLulusPKL");
    const myChart = new Chart(ctx, {
@@ -250,7 +263,7 @@ $departemen = $result->fetch_object();
        datasets: [
          {
            label: "# of Votes",
-           data: [120, 134, 147, 155, 162, 139],
+           data: [<?= $angkatan2021 ?>, <?= $angkatan2020 ?>, <?= $angkatan2019 ?>, <?= $angkatan2018 ?>, <?= $angkatan2017 ?>,<?= $angkatan2016 ?>],
            backgroundColor: [
              "rgba(255, 99, 132, 0.2)",
              "rgba(54, 162, 235, 0.2)",
