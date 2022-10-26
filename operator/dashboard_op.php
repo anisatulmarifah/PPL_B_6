@@ -193,9 +193,9 @@ $operator = $result->fetch_object();
                 </a>
               </li>
               <li class="list">
-                <a href="javascript:alert('still coming soon!')" class="nav-link">
+                <a href="input_data.php" class="nav-link">
                   <i class="bx bx-folder-open icon"></i>
-                  <span class="link">Absensi Kuliah</span>
+                  <span class="link">Input Data Mahasiswa</span>
                 </a>
               </li>
             </ul>
