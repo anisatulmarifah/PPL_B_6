@@ -64,9 +64,9 @@ $status = $result->fetch_object();
                               name="status",
                               class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                               <option default>Pilih Status PKL</option>
-                              <option <?= ($status->status == 'belum mengambil') ? 'selected' : '' ?>  value="belum mengambil">Belum Mengambil</option>
-                              <option <?= ($status->status == 'lulus') ? 'selected' : '' ?> value="lulus">Lulus</option>
-                              <option <?= ($status->status == 'tidak lulus') ? 'selected' : '' ?> value="tidak lulus">Tidak Lulus</option>
+                              <option <?= ($status->status == 'Belum Mengambil') ? 'selected' : '' ?>  value="Belum Mengambil">Belum Mengambil</option>
+                              <option <?= ($status->status == 'Lulus') ? 'selected' : '' ?> value="Lulus">Lulus</option>
+                              <option <?= ($status->status == 'Tidak Lulus') ? 'selected' : '' ?> value="Tidak Lulus">Tidak Lulus</option>
                             </select>
                         </div>
                         <div class="">
