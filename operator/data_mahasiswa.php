@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php
+session_start();
 require_once('../db_login.php')
 ?>
 <html>
@@ -81,7 +82,7 @@ require_once('../db_login.php')
 
 
     <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <table id= "list-mahasiswa" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="py-3 px-6">
@@ -116,7 +117,13 @@ require_once('../db_login.php')
         <tbody>
               <!-- ambil data dari database -->
         <?php
-          $sql = "SELECT * FROM data_mahasiswa, pkl, skripsi, verifikasi WHERE data_mahasiswa.nim = skripsi.nim";
+
+
+          $sql = "SELECT * FROM data_mahasiswa as m, pkl, skripsi, verifikasi 
+          WHERE m.nim = skripsi.nim 
+          AND m.nim = pkl.nim
+          AND m.nim = verifikasi.nim
+          ";
           $result = $db->query($sql);
           $nomor = 0;
 
@@ -424,6 +431,33 @@ require_once('../db_login.php')
   <head>
 
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+
+  <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+  <script src="ajax.js"></script>
+  <script>
+    const angkatan = document.getElementsByName('filter-radio');
+    const filter2022 = angkatan[0];
+    const filter2021 = angkatan[1];
+    const filter2020 = angkatan[2];
+    const filter2019 = angkatan[3];
+    const filter2018 = angkatan[4];
+
+    filter2022.onchange = function() {
+      getAngkatan('2022', 'list-mahasiswa');
+    }
+    filter2021.onchange = function() {
+      getAngkatan('2021', 'list-mahasiswa');
+    }
+    filter2020.onchange = function() {
+      getAngkatan('2020', 'list-mahasiswa');
+    }
+    filter2019.onchange = function() {
+      getAngkatan('2019', 'list-mahasiswa');
+    }
+    filter2018.onchange = function() {
+      getAngkatan('2018', 'list-mahasiswa');
+    }
+  </script>
 </body>
 
 </html>
