@@ -13,6 +13,15 @@ $result = $db->query($query);
 
 $mahasiswa = $result->fetch_object();
 
+$query = "SELECT * FROM skripsi WHERE nim = $nim";
+$result = $db->query($query);
+
+$skripsi = $result->fetch_object();
+
+$query = "SELECT * FROM pkl WHERE nim = $nim";
+$result = $db->query($query);
+
+$pkl = $result->fetch_object();
 ?>
 
 <!DOCTYPE html>
@@ -63,14 +72,14 @@ $mahasiswa = $result->fetch_object();
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-6">
             <div class="text-2xl justify-center mb-6 text-center">Status PKL</div>
             <div>
-              <input type="text" readonly class="mx-36 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-6/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+            <h1 class="text-3xl justify-center text-center"><?= $pkl->status ?></h1>
             </div>
           </div>
 
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-6">
           <div class="text-2xl justify-center mb-6 text-center">Status Skripsi</div>
             <div>
-              <input type="text" readonly class="mx-36 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-6/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+            <h1 class="text-3xl justify-center text-center"><?= $skripsi->status ?></h1>
             </div>
           </div>
           </div>
@@ -83,7 +92,7 @@ $mahasiswa = $result->fetch_object();
           </div>
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-3">
             <div class="text-2xl justify-center mb-6 text-center">Status</div>
-            <h1 class="text-3xl justify-center text-center">Aktif</h1>
+            <h1 class="text-3xl justify-center text-center"><?= $mahasiswa->status ?></h1>
           </div>
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-3">
             <div class="text-2xl justify-center mb-6 text-center">IP Kumulatif</div>
