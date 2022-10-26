@@ -180,7 +180,7 @@ $operator = $result->fetch_object();
               
               
               <li class="list">
-                <a href="manajemen_akun.php" class="nav-link">
+                <a href="data_mahasiswa.php" class="nav-link">
                   <i class="bx bx-spreadsheet icon" ></i>
                   <span class="link">Manajemen Akun</span>
                 </a>
