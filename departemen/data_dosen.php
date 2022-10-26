@@ -20,7 +20,7 @@ require_once('../db_login.php');
   <!-- End of Navbar -->
   <div class="">
     <!-- Content -->
-    <h1 class="text-4xl mx-20 my-8 mt-24">Manajemen Data Dosen</h1>
+    <h1 class="text-4xl mx-20 my-8 mt-24">sData Dosen</h1>
     <div class="flex justify-between mx-20 mt-8">
       <!-- dropdown pilih tahun -->
       <div>
@@ -333,14 +333,14 @@ require_once('../db_login.php');
                 <span class="link">Data Mahasiswa Skripsi</span>
               </a>
             </li>
-           
+            
             <div class="list"> 
-             <a href="data_pkl.php" class="nav-link">
+              <a href="data_pkl.php" class="nav-link">
                 <i class="bx bx-pie-chart-alt-2 icon"></i>
                 <span class="link">Data Mahasiswa PKL</span>  
               </a>
               </a>
-             </div>
+              </div>
             <li class="list">
               <a href="progress.php" class="nav-link">
                 <i class="bx bx-paste icon" ></i>
