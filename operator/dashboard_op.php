@@ -83,12 +83,12 @@
         <div class="grid grid-cols-12 gap-4 mx-20 mt-4">
           <?php 
           require_once('../db_login.php');
-          $query = "SELECT nama, COUNT(*) AS jumlah FROM data_mahasiswa GROUP BY nama";
+          $query = "SELECT nama, COUNT(*) AS jumlah FROM data_mahasiswa";
           $result = $db->query($query);
 
           $jumlahmhs = $result->fetch_object()->jumlah;
 
-          $query = "SELECT nama, COUNT(*) AS jml FROM data_dosen GROUP BY nama";
+          $query = "SELECT nama, COUNT(*) AS jml FROM data_dosen";
           $result = $db->query($query);
 
           $jumlahdosen = $result->fetch_object()->jml;
