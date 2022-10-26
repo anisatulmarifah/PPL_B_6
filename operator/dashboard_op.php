@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-
-<?php 
-
-require_once('../db_login.php');
-?>
-
 <html>
   <link rel="stylesheet" href="style.css" />
   <head>
@@ -87,14 +81,26 @@ require_once('../db_login.php');
         </div>
 
         <div class="grid grid-cols-12 gap-4 mx-20 mt-4">
+          <?php 
+          require_once('../db_login.php');
+          $query = "SELECT nama, COUNT(*) AS jumlah FROM data_mahasiswa GROUP BY nama";
+          $result = $db->query($query);
+
+          $jumlahmhs = $result->fetch_object()->jumlah;
+
+          $query = "SELECT nama, COUNT(*) AS jml FROM data_dosen GROUP BY nama";
+          $result = $db->query($query);
+
+          $jumlahdosen = $result->fetch_object()->jml;
+          ?>
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-6">
             <div class="text-2xl justify-center mb-6 text-center">Jumlah mahasiswa</div>
-            <h1 class="text-4xl justify-center text-center">1150</h1>
+            <h1 class="text-4xl justify-center text-center"><?= $jumlahmhs ?></h1>
           </div>
 
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-6">
           <div class="text-2xl justify-center mb-6 text-center">Jumlah Dosen</div>
-          <h1 class="text-4xl justify-center text-center">150</h1>
+          <h1 class="text-4xl justify-center text-center"><?= $jumladosen ?></h1>
           </div>
         </div>
 
