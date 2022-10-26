@@ -40,7 +40,7 @@ if($cek>0){
     else if($data['status']=="operator"){
 
         //buat session login dan username
-        $_SESSION['username'] = $username;
+        $_SESSION['nip'] = $nip_nim;
         $_SESSION['email']= $data['email'];
         //alihkan ke dashboard operator
         header("location:operator/dashboard_op.php");
