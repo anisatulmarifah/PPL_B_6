@@ -57,27 +57,27 @@
               </li>
              
               <div class="list"> 
-               <a href="inputirs.html" class="nav-link"> 
+               <a href="inputirs.php" class="nav-link"> 
                   <i class="bx bx-pie-chart-alt-2 icon"></i>
                   <span class="link">Data IRS</span>  
                 </a>
                 </a>
                </div>
               <li class="list">
-                <a href="inputkhs.html" class="nav-link">
+                <a href="inputkhs.php" class="nav-link">
                   <i class="bx bx-paste icon" ></i>
                   <span class="link">Data KHS</span>
                 </a>
               </li>
               <li class="list">
-                <a href="inputpkl.html" class="nav-link">
+                <a href="inputpkl.php" class="nav-link">
                   <i class="bx bx-folder-open icon"></i>
                   <span class="link">Data PKL</span>
                 </a>
               </li>
             
             <li class="list">
-              <a href="input_skripsi.html" class="nav-link">
+              <a href="input_skripsi.php" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
                 <span class="link">Data Skripsi</span>
               </a>
