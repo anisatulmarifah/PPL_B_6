@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+require_once('../db_login.php');
+$nim = $_SESSION['nim'];
+
+$query = "SELECT * FROM data_mahasiswa WHERE nim = $nim";
+$result = $db->query($query);
+$mahasiswa = $result->fetch_object();
+
+
+// if ($result->num_rows > 0) {
+//     $row = $result->fetch_object();
+//     $email = $row->email;
+//     $no_hp = $row->nomor_hp;
+//     $doswal = $row->doswal;
+//     $alamat = $row->alamat;
+//     $provinsi = $row->provinsi;
+//     $kab_kota = $row->kabupaten_kota;
+// } else {
+//     $email = '';
+//     $no_hp = '';
+//     $doswal = '';
+//     $alamat = '';
+//     $provinsi = '';
+//     $kab_kota = '';
+// }
+
+?>
 <!DOCTYPE html>
 <link rel="stylesheet" href="style.css" />
 <html>
@@ -119,7 +148,7 @@
     <!-- End of Navbar -->
     <div class="flex flex-col max-w-4xl mx-auto mt-32">
       <!-- Content -->
-      <form class="w-full">
+      <form class="w-full" method="POST" action="post_update.php">
         <div class="bg-white shadow-md rounded-lg p-8">
           <h1 class="text-3xl font-medium mb-8">Update Data</h1>
           <div class="flex items-start gap-12">
@@ -159,7 +188,7 @@
                     >Nama Lengkap</label
                   >
                   <input
-                    type="text"
+                    type="text" value="<?= $mahasiswa->nama ?>"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
                 </div>
@@ -170,6 +199,7 @@
                   >
                   <input
                     type="text"
+                    id="email" name="email",
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
                 </div>
@@ -181,7 +211,7 @@
                   >NIM</label
                 >
                 <input
-                  type="text"
+                  type="text" name="nim" value="<?= $mahasiswa->nim ?>"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
                 </div>
@@ -192,6 +222,7 @@
                   >
                   <input
                     type="text"
+                    id="no_hp" name="no_hp",
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
                 </div>
@@ -214,7 +245,8 @@
                 >
                 <input
                   type="text"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  id="alamat" name="alamat",
+                  class="p-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </div>
 
@@ -225,13 +257,14 @@
                     >Provinsi</label
                   >
                   <select
+                    id="provinsi" name="provinsi",
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
-                    <option selected>Pilih Provinsi</option>
-                    <option value="jawa barat">Jawa Barat</option>
-                    <option value="dki jakarta">DKI Jakarta</option>
-                    <option value="jawa tengah">Jawa Tengah</option>
-                    <option value="jawa timur">Jawa Timur</option>
+                    <option default>Pilih Provinsi</option>
+                    <option <?= ($provinsi->provinsi =='jawa barat') ? 'selected' : '' ?> value="jawa barat">Jawa Barat</option>
+                    <option <?= ($provinsi->provinsi =='jawa tengah') ? 'selected' : '' ?> value="jawa tengah">Jawa Tengah</option>
+                    <option <?= ($provinsi->provinsi =='jawa timur') ? 'selected' : '' ?> value="jawa timur">Jawa Timur</option>
+                    <option <?= ($provinsi->provinsi =='dki jakarta') ? 'selected' : '' ?> value="dki jakarta">DKI Jakarta</option>
                   </select>
                 </div>
                 <div class="w-6/12">
@@ -240,18 +273,19 @@
                     >Kabupaten/Kota</label
                   >
                   <select
+                    id="kab_kota" name="kab_kota",
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
-                    <option selected>Pilih Kabupaten/Kota</option>
-                    <option value="bandung">Bandung</option>
-                    <option value="jakarta">Jakarta</option>
-                    <option value="semarang">Semarang</option>
-                    <option value="surabaya">Surabaya</option>
-                    <option value="yogyakarta">Yogyakarta</option>
-                    <option value="solo">Solo</option>
-                    <option value="bogor">Bogor</option>
-                    <option value="bekasi">Bekasi</option>
-                    <option value="depok">Depok</option>
+                    <option default>Pilih Kabupaten/Kota</option>
+                    <option <?= ($kab_kota->kab_kota == 'bandung') ? 'selected' : '' ?> value="bandung">Bandung</option>
+                    <option <?= ($kab_kota->kab_kota == 'bekasi') ? 'selected' : '' ?> value="bekasi">Bekasi</option>
+                    <option <?= ($kab_kota->kab_kota == 'bogor') ? 'selected' : '' ?> value="bogor">Bogor</option>
+                    <option <?= ($kab_kota->kab_kota == 'depok') ? 'selected' : '' ?> value="depok">Depok</option>
+                    <option <?= ($kab_kota->kab_kota == 'jakarta') ? 'selected' : '' ?> value="jakarta">Jakarta</option>
+                    <option <?= ($kab_kota->kab_kota == 'semarang') ? 'selected' : '' ?> value="semarang">Semarang</option>
+                    <option <?= ($kab_kota->kab_kota == 'surabaya') ? 'selected' : '' ?> value="surabaya">Surabaya</option>
+                    <option <?= ($kab_kota->kab_kota == 'yogyakarta') ? 'selected' : '' ?> value="yogyakarta">Yogyakarta</option>
+                    <option <?= ($kab_kota->kab_kota == 'solo') ? 'selected' : '' ?> value="solo">Solo</option>
                   </select>
                 </div>
               </div>
@@ -262,29 +296,20 @@
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >Status</label
                   >
-                  <select
+                  <input
+                    type="text" name="status" value="<?= $mahasiswa->status ?>"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  >
-                    <option selected>Pilih Status</option>
-                    <option value="aktif">Aktif</option>
-                    <option value="cuti">Cuti</option>
-                  </select>
+                  />
                 </div>
                 <div class="w-4/12">
                   <label
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >Angkatan</label
                   >
-                  <select
+                  <input
+                    type="text" name="angkatan" value="<?= $mahasiswa->angkatan ?>"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  >
-                    <option selected>Pilih Angkatan</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                  </select>
+                  />
                 </div>
               </div>
             </div>
@@ -292,17 +317,17 @@
         </div>
         <div class="flex justify-end mt-8 gap-2 mb-10">
           <button
-            type="button"
+            type="submit"
             class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-12 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
           >
             Save
           </button>
-          <button
+          <a href="dashboard_mhs.php"
             type="button"
             class="text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-12 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"
           >
             < Kembali
-          </button>
+          </a>
         </div>
       </form>
       <!-- End of Content -->
