@@ -44,9 +44,11 @@
         <tbody>
 
           <?php
-            require_once ("db_login.php");
+            require_once ("../db_login.php");
 
-            $query="SELECT semester,jumlah_sks,ip,upload_file FROM irs WHERE nim=2147483647";
+            $nim=$_SESSION['nim'];
+
+            $query="SELECT semester,jumlah_sks,ip,upload_file FROM irs WHERE nim=$nim";
             
             $result= $db->query($query);
 
