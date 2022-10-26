@@ -182,7 +182,7 @@ require_once('../db_login.php');
       <nav>
         <div class="logo">
           <i class="bx bx-menu menu-icon"></i>
-          <span class="logo-name">Dashboard</span>
+          <span class="logo-name">Dashboard Dosen</span>
         </div>
         <div class="sidebar">
           <div class="logo">
@@ -217,7 +217,7 @@ require_once('../db_login.php');
               <li class="list">
                 <a href="progress.php" class="nav-link">
                   <i class="bx bx-paste icon" ></i>
-                  <span class="link">Progres Studi Mahasiswa</span>
+                  <span class="link">Progress Studi Mahasiswa</span>
                 </a>
               </li>
               <li class="list">
@@ -235,12 +235,6 @@ require_once('../db_login.php');
             </ul>
 
             <div class="bottom-cotent">
-              <li class="list">
-                <a href="javascript:alert('still coming soon!')" class="nav-link">
-                  <i class="bx bx-cog icon"></i>
-                  <span class="link">Settings</span>
-                </a>
-              </li>
               <li class="list">
                 <a href="../logout.php" class="nav-link">
                   <i class="bx bx-log-out icon"></i>
