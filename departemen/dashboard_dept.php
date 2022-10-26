@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+require_once('../db_login.php');
+if (!isset($_SESSION['nim'])){
+  header('Location: ../login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <div class = "content">
