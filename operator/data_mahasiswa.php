@@ -85,6 +85,9 @@ require_once('../db_login.php')
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="py-3 px-6">
+              No
+            </th>
+            <th scope="col" class="py-3 px-6">
               Nama
             </th>
             <th scope="col" class="py-3 px-6">
@@ -97,6 +100,15 @@ require_once('../db_login.php')
               Status
             </th>
             <th scope="col" class="py-3 px-6">
+              Status PKL
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Status Skripsi
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Verifikasi
+            </th>
+            <th scope="col" class="py-3 px-6">
               Action
             </th>
           </tr>
@@ -104,9 +116,13 @@ require_once('../db_login.php')
         <tbody>
               <!-- ambil data dari database -->
         <?php
-          $sql = "SELECT * FROM data_mahasiswa";
+          $sql = "SELECT * FROM data_mahasiswa, pkl, skripsi, verifikasi WHERE data_mahasiswa.nim = skripsi.nim";
           $result = $db->query($sql);
+          $nomor = 0;
 
+          // $sql1 = "SELECT * FROM skripsi";
+
+          // $result1 = $db->query($sql1);
           if(!$result){
           die("Invalid query: " . $db->error);
         }
@@ -115,12 +131,17 @@ require_once('../db_login.php')
         
        
             <?php 
-              while($row = $result->fetch_assoc()){
+              while(($row = $result->fetch_assoc())){
+                $nomor++;
                 echo "<tr> 
+                <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$nomor. "</td>
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["nama"]. "</td>
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["nim"]. "</td>
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["angkatan"]. "</td>
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["status"]. "</td>
+                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["status_pkl"]. "</td>
+                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["status_skripsi"]. "</td>
+                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["status_verifikasi"]. "</td>
                   <td class='py-4 px-6 space-x-4 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
                     <a href='#' type='button' data-modal-toggle='editModal' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit  </a>
                     <a href='#' type='button' data-modal-toggle='detailModal' class='font-medium text-green-600 dark:text-green-500 hover:underline'>Detail  </a>
@@ -128,7 +149,11 @@ require_once('../db_login.php')
                   </td>
                 </tr>";
               }
+              
+
               ?>
+
+
             </td>
 
           </tr>
