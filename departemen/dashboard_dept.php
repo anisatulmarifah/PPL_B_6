@@ -242,7 +242,7 @@
  <!-- Chart Configuration -->
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
  <?php
- require_once('db_login.php');
+ require_once('../db_login.php');
  $query = "SELECT angkatan, COUNT(nim) as jml FROM data_mahasiswa GROUP BY angkatan";
  $result = $db->query($query);
 
