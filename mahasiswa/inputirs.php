@@ -46,7 +46,9 @@
           <?php
             require_once ("../db_login.php");
 
-            $query="SELECT semester,jumlah_sks,ip,upload_file FROM irs WHERE nim=24060120140130";
+            $nim = $_SESSION['nim'];
+
+            $query="SELECT semester,jumlah_sks,ip,upload_file FROM irs WHERE nim=$nim";
             
             $result= $db->query($query);
 
