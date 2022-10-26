@@ -4,7 +4,7 @@
 	<body>
 	
 		<?php 
-		require_once('db_login.php');
+		require_once('../db_login.php');
 		
 			$ekstensi_diperbolehkan	= array('pdf');
 			$nama = $_FILES['file']['name'];
