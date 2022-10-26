@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-require_once('db_login.php')
+require_once('../db_login.php')
 ?>
 <html>
 <link rel="stylesheet" href="style.css" />
