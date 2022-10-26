@@ -41,7 +41,7 @@ require_once('../db_login.php');
       <div class="sidebar-content">
         <ul class="lists">
           <li class="list">
-            <a href="#" class="nav-link">
+            <a href="dashboard_dosen.php" class="nav-link">
               <i class="bx bx-home-alt icon"></i>
               <span class="link">Home</span>
             </a>

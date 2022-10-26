@@ -34,7 +34,7 @@ $dosen = $result->fetch_object();
         <div class="grid grid-cols-12 gap-4 mx-20 mt-4">
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-7">
             <div class="flex w-full justify-center items-center">
-              <img class="object-center w-32 h-32 border-2 rounded-full" src="/Users/fartisfr/Documents/mahasiswa.jpg" alt="foto dosen wali">
+              <img class="object-center w-32 h-32 border-2 rounded-full" src="https://www.greenscene.co.id/wp-content/uploads/2020/09/shanks-jahat.jpg" alt="foto dosen wali">
             </div>
 
             <div class="w-full">
