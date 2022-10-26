@@ -104,14 +104,6 @@
           </tr>
         </thead>
         <tbody>
-          <?php
-            require_once('../db_login.php');
-
-            $query = "SELECT * FROM `data_mahasiswa`";
-            $result = $db->query($query);
-            
-            while
-          ?>
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
             <td class="py-4 px-6">
               4
@@ -391,10 +383,10 @@
     />
   </head>
   <body>
-    <nav>
+  <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Dashboard</span>
+        <span class="logo-name">Manajemen Akun</span>
       </div>
       <div class="sidebar">
         <div class="logo">
@@ -411,24 +403,17 @@
               </a>
             </li>
             
-            
-            <li class="list">
-              <a href="manajemen_akun.php" class="nav-link">
-                <i class="bx bx-spreadsheet icon" ></i>
-                <span class="link">Manajemen Akun</span>
+            <div class="list"> 
+             <a href="data_mahasiswa.php" class="nav-link"> 
+                <i class="bx bx-pie-chart-alt-2 icon"></i>
+                <span class="link">Data Mahasiswa </span>  
               </a>
-            </li>
-            
+              </a>
+             </div>
             <li class="list">
               <a href="data_dosen.php" class="nav-link">
                 <i class="bx bx-paste icon" ></i>
                 <span class="link">Data Dosen</span>
-              </a>
-            </li>
-            <li class="list">
-              <a href="javascript:alert('still coming soon!')" class="nav-link">
-                <i class="bx bx-folder-open icon"></i>
-                <span class="link">Absensi Kuliah</span>
               </a>
             </li>
           </ul>
@@ -467,9 +452,6 @@
       overlay.addEventListener("click", () => {
         navBar.classList.remove("open");
       });
-
-
-      const filter = document.getElementsByName("filter-radio");
     </script>
   </body>
   <head>
