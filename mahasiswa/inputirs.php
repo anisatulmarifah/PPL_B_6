@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <!-- Navbar dd-->
+  <!-- Navbar -->
 
   <!-- End of Navbar -->
   <div class="">
@@ -42,78 +42,29 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <td class="py-4 px-6">
-              4
-            </td>
 
-            <td class="py-4 px-6">
-              23
-            </td>
+          <?php
+            require_once ("db_login.php");
 
-            <td class="py-4 px-6">
-              3.70
-            </td>
+            $query="SELECT semester,jumlah_sks,ip,upload_file FROM irs WHERE nim=2147483647";
+            
+            $result= $db->query($query);
 
-            <td class="py-4 px-6">
-              <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a>
-            </td>
+            while ($row = $result->fetch_object()){
+              echo '<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">';
+              echo ' <td class="py-4 px-6"> '.$row->semester.' </td>';
+              echo ' <td class="py-4 px-6"> '.$row->jumlah_sks.' </td>';
+              echo ' <td class="py-4 px-6"> '.$row->ip.' </td>';
+              echo '<td class="py-4 px-6"><a href="file/'.$row->upload_file.'" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a></td>';
+              echo '<td class="py-4 px-6 space-x-4">';
+              
+              echo '<a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>';
+              echo '<a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>';
+              echo '</td>';
+            }
 
-            <td class="py-4 px-6 space-x-4">
-              <!-- Modal toggle -->
-              <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-              <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
-            </td>
-          </tr>
-
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <td class="py-4 px-6">
-              5
-            </td>
-
-            <td class="py-4 px-6">
-              24
-            </td>
-
-            <td class="py-4 px-6">
-              3.80
-            </td>
-
-            <td class="py-4 px-6">
-              <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a>
-            </td>
-
-            <td class="py-4 px-6 space-x-4">
-              <!-- Modal toggle -->
-              <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-              <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
-            </td>
-          </tr>
-
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <td class="py-4 px-6">
-              6
-            </td>
-
-            <td class="py-4 px-6">
-              21
-            </td>
-
-            <td class="py-4 px-6">
-              3.80
-            </td>
-
-            <td class="py-4 px-6">
-              <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a>
-            </td>
-
-            <td class="py-4 px-6 space-x-4">
-              <!-- Modal toggle -->
-              <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-              <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
-            </td>
-          </tr>
-
+          ?>
+          
         </tbody>
       </table>
       <!-- Edit modal -->
@@ -195,7 +146,7 @@
       <div id="addModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
         <div class="relative w-full max-w-2xl h-full md:h-auto">
           <!-- Modal content -->
-          <form action="#" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <form action="upload.php" method="POST" enctype="multipart/form-data" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <!-- Modal header -->
             <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
               <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -212,7 +163,7 @@
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-6">
                   <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Semester</label>
-                  <select required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="pilih semester">
+                  <select name="semester" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="pilih semester">
                   <!-- Jadi ini kan aku bikin value="" trs dia selected, jadi defaultnya value dari select ini itu = "", padahal kalo required itu gaboleh, nah nanti dia bakal kevalidasi suruh isi dulu -->  
                   <option selected value="">Pilih Semester</option>
                     <option value="1">1</option>
@@ -233,7 +184,7 @@
                 </div>
                 <div class="col-span-6 sm:col-span-6">
                   <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jumlah SKS</label>
-                  <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="pilih jumlah sks" required>
+                  <select name="jumlah_sks" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="pilih jumlah sks" required>
                     <!-- sama, pokonya kalo select gt -->
                     <option selected value="">Pilih Jumlah SKS</option>
                     <option value="15">15</option>
@@ -250,20 +201,20 @@
                 </div>
                 <div class="col-span-6 sm:col-span-6">
                   <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">IP Semester</label>
-                  <input type="text" name="ips" id="ips" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="3.50" required>
+                  <input type="text" name="ip" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="3.50" required>
                 </div>
 
                 <div class="col-span-6 sm:col-span-6">
                   <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload File IRS</label>
                   <!-- Blm ada required e tadi -->
-                  <input required class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+                  <input name="file" required class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
                   <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">irs_namamhs.pdf</p>
                 </div>
               </div>
             </div>
             <!-- Modal footer -->
             <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-              <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save Changes</button>
+              <button name="upload" value="upload" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save Changes</button>
             </div>
           </form>
         </div>
@@ -290,12 +241,12 @@
     <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Data IRS</span>
+        <span class="logo-name">Dashboard</span>
       </div>
       <div class="sidebar">
         <div class="logo">
           <i class="bx bx-menu menu-icon"></i>
-          <span class="logo-name">Universitas Diponegoro</span>
+          <span class="logo-name">SIAK</span>
         </div>
 
         <div class="sidebar-content">
@@ -338,12 +289,18 @@
             <li class="list">
               <a href="input_skripsi.php" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
-                <span class="link">Data Skripsi</span>
+                <span class="link">Skripsi</span>
               </a>
             </li>
           </ul>
 
           <div class="bottom-cotent">
+            <li class="list">
+              <a href="javascript:alert('still coming soon!')" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link">Settings</span>
+              </a>
+            </li>
             <li class="list">
               <a href="../logout.phpphp" class="nav-link">
                 <i class="bx bx-log-out icon"></i>
