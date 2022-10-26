@@ -20,7 +20,7 @@ require_once('../db_login.php');
   <!-- End of Navbar -->
   <div class="">
     <!-- Content -->
-    <h1 class="text-4xl mx-20 my-8 mt-24">sData Dosen</h1>
+    <h1 class="text-4xl mx-20 my-8 mt-24">Data Dosen</h1>
     <div class="flex justify-between mx-20 mt-8">
       <!-- dropdown pilih tahun -->
       <div>
