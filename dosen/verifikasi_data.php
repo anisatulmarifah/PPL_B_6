@@ -53,7 +53,7 @@
                       </td>
 
                       <td class="py-4 px-6">
-                        <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a>
+                        <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat Detail</a>
                       </td>
 
                       <td class="py-4 px-6 space-x-4">
@@ -77,7 +77,7 @@
                       </td>
 
                       <td class="py-4 px-6">
-                        <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a>
+                        <a href="detail_data.php" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat Detail</a>
                       </td>
 
                       <td class="py-4 px-6 space-x-4">
@@ -101,7 +101,7 @@
                       </td>
 
                       <td class="py-4 px-6">
-                        <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a>
+                        <a href="detail_data.php" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat Detail</a>
                       </td>
 
                       <td class="py-4 px-6 space-x-4">
