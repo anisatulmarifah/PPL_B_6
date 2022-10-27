@@ -8,25 +8,6 @@ $query = "SELECT * FROM data_mahasiswa WHERE nim = $nim";
 $result = $db->query($query);
 $mahasiswa = $result->fetch_object();
 
-
-
-// if ($result->num_rows > 0) {
-//     $row = $result->fetch_object();
-//     $email = $row->email;
-//     $no_hp = $row->nomor_hp;
-//     $doswal = $row->doswal;
-//     $alamat = $row->alamat;
-//     $provinsi = $row->provinsi;
-//     $kab_kota = $row->kabupaten_kota;
-// } else {
-//     $email = '';
-//     $no_hp = '';
-//     $doswal = '';
-//     $alamat = '';
-//     $provinsi = '';
-//     $kab_kota = '';
-// }
-
 ?>
 <!DOCTYPE html>
 <link rel="stylesheet" href="style.css" />
@@ -249,10 +230,10 @@ $mahasiswa = $result->fetch_object();
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                     <option default>Pilih Provinsi</option>
-                    <option <?= ($mahasiswa->provinsi =='jawa barat') ? 'selected' : '' ?> value="jawa barat">Jawa Barat</option>
-                    <option <?= ($mahasiswa->provinsi =='jawa tengah') ? 'selected' : '' ?> value="jawa tengah">Jawa Tengah</option>
-                    <option <?= ($mahasiswa->provinsi =='jawa timur') ? 'selected' : '' ?> value="jawa timur">Jawa Timur</option>
-                    <option <?= ($mahasiswa->provinsi =='dki jakarta') ? 'selected' : '' ?> value="dki jakarta">DKI Jakarta</option>
+                    <option <?= ($mahasiswa->provinsi =='JAWA BARAT') ? 'selected' : '' ?> value="JAWA BARAT">Jawa Barat</option>
+                    <option <?= ($mahasiswa->provinsi =='JAWA TENGAH') ? 'selected' : '' ?> value="JAWA TENGAH">Jawa Tengah</option>
+                    <option <?= ($mahasiswa->provinsi =='JAWA TIMUR') ? 'selected' : '' ?> value="jawa timur">Jawa Timur</option>
+                    <option <?= ($mahasiswa->provinsi =='DKI JAKARTA') ? 'selected' : '' ?> value="DKI JAKARTA">DKI Jakarta</option>
                   </select>
                 </div>
                 <div class="w-6/12">
@@ -265,15 +246,15 @@ $mahasiswa = $result->fetch_object();
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                     <option default>Pilih Kabupaten/Kota</option>
-                    <option <?= ($mahasiswa->kabupaten_kota == 'bandung') ? 'selected' : '' ?> value="bandung">Bandung</option>
-                    <option <?= ($mahasiswa->kabupaten_kota == 'bekasi') ? 'selected' : '' ?> value="bekasi">Bekasi</option>
-                    <option <?= ($mahasiswa->kabupaten_kota == 'bogor') ? 'selected' : '' ?> value="bogor">Bogor</option>
-                    <option <?= ($mahasiswa->kabupaten_kota == 'depok') ? 'selected' : '' ?> value="depok">Depok</option>
-                    <option <?= ($mahasiswa->kabupaten_kota == 'jakarta') ? 'selected' : '' ?> value="jakarta">Jakarta</option>
-                    <option <?= ($mahasiswa->kabupaten_kota == 'semarang') ? 'selected' : '' ?> value="semarang">Semarang</option>
-                    <option <?= ($mahasiswa->kabupaten_kota == 'surabaya') ? 'selected' : '' ?> value="surabaya">Surabaya</option>
-                    <option <?= ($mahasiswa->kabupaten_kota == 'yogyakarta') ? 'selected' : '' ?> value="yogyakarta">Yogyakarta</option>
-                    <option <?= ($mahasiswa->kabupaten_kota == 'solo') ? 'selected' : '' ?> value="solo">Solo</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'BANDUNG') ? 'selected' : '' ?> value="BANDUNG">Bandung</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'BEKASI') ? 'selected' : '' ?> value="BEKASI">Bekasi</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'BOGOR') ? 'selected' : '' ?> value="BOGOR">Bogor</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'DEPOK') ? 'selected' : '' ?> value="DEPOK">Depok</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'JAKARTA') ? 'selected' : '' ?> value="JAKARTA">Jakarta</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'SEMARANG') ? 'selected' : '' ?> value="SEMARANG">Semarang</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'SURABAYA') ? 'selected' : '' ?> value="SURABAYA">Surabaya</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'YOGYAKARTA') ? 'selected' : '' ?> value="YOGYAKARTA">Yogyakarta</option>
+                    <option <?= ($mahasiswa->kabupaten_kota == 'SOLO') ? 'selected' : '' ?> value="SOLO">Solo</option>
                   </select>
                 </div>
               </div>
