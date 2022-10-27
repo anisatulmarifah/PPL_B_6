@@ -103,7 +103,7 @@ $status = $result->fetch_object();
             </div>
             <div class="col-span-4">
               <?php
-                $sql = "SELECT nilai FROM nilai WHERE nim = '$nim'";
+                $sql = "SELECT nilai_pkl FROM nilai WHERE nim = '$nim'";
                 $result = $db->query($query);
 
                 $nilai = $result->fetch_object()->nilai;
@@ -226,7 +226,7 @@ $status = $result->fetch_object();
           navBar.classList.remove("open");
         });
 
-        const status = document.getElementById('status');
+        const status = document.getElementById('status_pkl');
         function refreshFormState() {
           if (status.selectedIndex == 1) {
             document.getElementById('nilai_pkl').disabled = true;
