@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+require_once('../db_login.php');
+session_start();
+?>
+
 <html>
   <link rel="stylesheet" href="style.css" />
   <head>
@@ -22,6 +27,9 @@
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                       <th scope="col" class="py-3 px-6">
+                          No
+                      </th>
+                      <th scope="col" class="py-3 px-6">
                           Nama
                       </th>
                       <th scope="col" class="py-3 px-6">
@@ -39,77 +47,44 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                      <td class="py-4 px-6">
-                          Anisatul Ma'rifah
-                      </td>
+              <?php
+              $query_param = $_SERVER["QUERY_STRING"];
+              $sql = "";
+              if ($query_param) {
+                $name = strtolower(explode("=", $query_param)[1]);
+                $sql = "SELECT * FROM data_mahasiswa WHERE LOWER(nama) LIKE '%$name%'";
+              } else {
+                $sql = "SELECT * FROM data_mahasiswa";
+              }
 
-                      <td class="py-4 px-6">
-                          24060120140154
-                      </td>
+              $result = $db->query($sql);
 
-                      <td class="py-4 px-6">
-                          5
-                      </td>
+              if (!$result) {
+                die("Invalid query: " . $db->error);
+              }
+              ?>
+              <!-- udah ambil data -->
 
-                      <td class="py-4 px-6">
-                        <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat Detail</a>
-                      </td>
 
-                      <td class="py-4 px-6 space-x-4">
-                        <!-- Modal toggle -->
-                        <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Verified</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Unverified</a>
+              <?php
+              $no = 1;
+              while ($row = $result->fetch_assoc()) {
+                echo "<tr> 
+                      <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $no . "</td>
+                      <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["nama"] . "</td>
+                      <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["nim"] . "</td>
+                      <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["semester"] . "</td>
+                      <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
+                        <a href='detail_data.php' class='font-medium text-green-600 dark:text-green-500 hover:underline'>Lihat Detail</a>
                       </td>
-                  </tr>
-
-                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td class="py-4 px-6">
-                          Anisatul Ma'rifah
+                      <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
+                        <a href='edit_data.php' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Verified</a>
+                        <a href='delete_data.php' class='font-medium text-red-600 dark:text-red-500 hover:underline'>Unverified</a>
                       </td>
-
-                      <td class="py-4 px-6">
-                          24060120140154
-                      </td>
-
-                      <td class="py-4 px-6">
-                          5
-                      </td>
-
-                      <td class="py-4 px-6">
-                        <a href="detail_data.php" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat Detail</a>
-                      </td>
-
-                      <td class="py-4 px-6 space-x-4">
-                        <!-- Modal toggle -->
-                        <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Verified</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Unverified</a>
-                      </td>
-                  </tr>
-                  
-                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td class="py-4 px-6">
-                          Anisatul Ma'rifah
-                      </td>
-
-                      <td class="py-4 px-6">
-                          24060120140154
-                      </td>
-
-                      <td class="py-4 px-6">
-                          5
-                      </td>
-
-                      <td class="py-4 px-6">
-                        <a href="detail_data.php" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat Detail</a>
-                      </td>
-
-                      <td class="py-4 px-6 space-x-4">
-                        <!-- Modal toggle -->
-                        <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Verified</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Unverified</a>
-                      </td>
-                  </tr>
+                      </tr>";
+                $no = $no + 1;
+              }
+              ?>
               </tbody>
           </table>
           <!-- Edit modal -->
