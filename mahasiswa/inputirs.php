@@ -45,9 +45,8 @@
 
           <?php
             require_once ("../db_login.php");
-
-            $query="SELECT semester,jumlah_sks,ip,upload_file FROM irs WHERE nim=24060120140130";
-            
+            $query="SELECT nim,semester,jumlah_sks,ip,upload_file FROM irs WHERE nim='2147483647' ";
+            //balikin nim 
             $result= $db->query($query);
 
             while ($row = $result->fetch_object()){
@@ -61,6 +60,7 @@
               echo '<a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>';
               echo '<a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>';
               echo '</td>';
+              //href=""
             }
 
           ?>

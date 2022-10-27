@@ -21,39 +21,9 @@
         <canvas id="grafikMahasiswaLulusPKL"></canvas>
         <!-- End of Chart Element -->
       </div>
-      <div class="flex gap-4 overflow-scroll pb-4">
+      <div class="flex w-full justify-center items-center">
         <a
           href="skripsi_detail.php"
-          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
-        >
-          2012
-        </a>
-        <a
-          href="#"
-          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
-        >
-          2013
-        </a>
-        <a
-          href="#"
-          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
-        >
-          2014
-        </a>
-        <a
-          href="#"
-          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
-        >
-          2015
-        </a>
-        <a
-          href="#"
-          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
-        >
-          2016
-        </a>
-        <a
-          href="#"
           class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
         >
           2017
@@ -72,7 +42,13 @@
         </a>
         <a
           href="#"
-          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 
+          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
+        >
+          2020
+        </a>
+        <a
+          href="#"
+          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100"
         >
           2021
         </a>
