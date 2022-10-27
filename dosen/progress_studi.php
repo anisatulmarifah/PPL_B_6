@@ -27,72 +27,72 @@ require_once('../db_login.php');
 
 <body>
   <!-- Navbar -->
-  <nav>
-    <div class="logo">
-      <i class="bx bx-menu menu-icon"></i>
-      <span class="logo-name">Progress Studi Mahasiswa</span>
-    </div>
-    <div class="sidebar">
+    <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Universitas Diponegoro</span>
+        <span class="logo-name">Progress Studi Mahasiswa</span>
       </div>
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name">Universitas Diponegoro</span>
+        </div>
 
-      <div class="sidebar-content">
-        <ul class="lists">
-          <li class="list">
-            <a href="dashboard_dosen.php" class="nav-link">
-              <i class="bx bx-home-alt icon"></i>
-              <span class="link">Home</span>
-            </a>
-          </li>
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list">
+              <a href="dashboard_dosen.php" class="nav-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Home</span>
+              </a>
+            </li>
+            
+            
+            <li class="list">
+              <a href="data_mahasiswa.php" class="nav-link">
+                <i class="bx bx-spreadsheet icon" ></i>
+                <span class="link">Data Mahasiswa </span>
+              </a>
+            </li>
+          
+            <div class="list"> 
+            <a href="verifikasi_data.php" class="nav-link"> 
+                <i class="bx bx-pie-chart-alt-2 icon"></i>
+                <span class="link">Verifikasi</span>  
+              </a>
+              </a>
+            </div>
+            <li class="list">
+              <a href="progress.php" class="nav-link">
+                <i class="bx bx-paste icon" ></i>
+                <span class="link">Progress Studi Mahasiswa</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="data_pkl.php" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
+                <span class="link">Data Mahasiswa PKL</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="data_skripsi.php" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
+                <span class="link">Data Mahasiswa Skripsi</span>
+              </a>
+            </li>
+          </ul>
 
-
-          <li class="list">
-            <a href="Data_skripsi.html" class="nav-link">
-              <i class="bx bx-spreadsheet icon"></i>
-              <span class="link">Data Mahasiswa </span>
-            </a>
-          </li>
-
-          <div class="list">
-            <a href="verifikasi_data.php" class="nav-link">
-              <i class="bx bx-pie-chart-alt-2 icon"></i>
-              <span class="link">Verifikasi</span>
-            </a>
-            </a>
+          <div class="bottom-cotent">
+            <li class="list">
+              <a href="../logout.php" class="nav-link">
+                <i class="bx bx-log-out icon"></i>
+                <span class="link">Logout</span>
+              </a>
+            </li>
           </div>
-          <li class="list">
-            <a href="progresstudimhs.php" class="nav-link">
-              <i class="bx bx-paste icon"></i>
-              <span class="link">Progress Studi Mahasiswa</span>
-            </a>
-          </li>
-          <li class="list">
-            <a href="javascript:alert('still coming soon!')" class="nav-link">
-              <i class="bx bx-folder-open icon"></i>
-              <span class="link">Data Mahasiswa PKL</span>
-            </a>
-          </li>
-          <li class="list">
-            <a href="javascript:alert('still coming soon!')" class="nav-link">
-              <i class="bx bx-folder-open icon"></i>
-              <span class="link">Data Mahasiswa Skripsi</span>
-            </a>
-          </li>
-        </ul>
-
-        <div class="bottom-cotent">
-          <li class="list">
-            <a href="../logout.php" class="nav-link">
-              <i class="bx bx-log-out icon"></i>
-              <span class="link">Logout</span>
-            </a>
-          </li>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <section class="overlay"></section>
 
@@ -195,7 +195,7 @@ require_once('../db_login.php');
             <!-- Modal header -->
             <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
               <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                Suatu Judul
+                Progress Studi Mahasiswa
               </h3>
               <button type="button" name="tambahDataKHS" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="progresModal">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
