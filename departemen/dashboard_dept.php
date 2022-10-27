@@ -124,23 +124,23 @@
  ?>
 
 
- <a href="javascript:alert('still coming soon!')" class="data-card">
+  <a class="data-card">
 
    <h3><?= $AKTIF?></h3>
    <h4>Jumlah Mahasiswa Aktif</h4>
    <span class="link-text">
-     View More
+     <!-- View More -->
      <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 
 </svg>
    </span>
  </a>
- <a href="javascript:alert('still coming soon!')" class="data-card">
+ <a class="data-card">
    <h3><?= $CUTI?></h3>
    <h4>Jumlah Mahasiswa Cuti</h4>
    
    <span class="link-text">
-     View More
+     <!-- View More -->
      <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
        
      </svg>
@@ -172,7 +172,7 @@
        <canvas id="grafikMahasiswaLulusPKL"></canvas>
        <!-- End of Chart Element -->
      </div>
-     <div class="flex gap-4 overflow-scroll pb-4">
+     <div class="flex w-full justify-center items-center">
        <a
          href="javascript:alert('still coming soon!')"
          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
@@ -202,36 +202,6 @@
          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
        >
          2017
-       </a>
-       <a
-         href="javascript:alert('still coming soon!')"
-         class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-       >
-         2016
-       </a>
-       <a
-         href="javascript:alert('still coming soon!')"
-         class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-       >
-         2015
-       </a>
-       <a
-         href="javascript:alert('still coming soon!')"
-         class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-       >
-         2014
-       </a>
-       <a
-         href="javascript:alert('still coming soon!')"
-         class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-       >
-         2013
-       </a>
-       <a
-         href="javascript:alert('still coming soon!')"
-         class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-       >
-         2012
        </a>
      </div>
      <!-- End of Content -->
@@ -293,6 +263,5 @@
      },
    });
  </script>
-   
+  </html>
 
- <br></br>
