@@ -58,8 +58,8 @@
 
                       <td class="py-4 px-6 space-x-4">
                         <!-- Modal toggle -->
-                        <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Sudah Terverifikasi</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Belum Terverifikasi</a>
+                        <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Verified</a>
+                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Unverified</a>
                       </td>
                   </tr>
 
@@ -82,8 +82,8 @@
 
                       <td class="py-4 px-6 space-x-4">
                         <!-- Modal toggle -->
-                        <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Sudah Terverifikasi</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Belum Terverifikasi</a>
+                        <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Verified</a>
+                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Unverified</a>
                       </td>
                   </tr>
                   
@@ -106,8 +106,8 @@
 
                       <td class="py-4 px-6 space-x-4">
                         <!-- Modal toggle -->
-                        <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Sudah Terverifikasi</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Belum Terverifikasi</a>
+                        <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Verified</a>
+                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Unverified</a>
                       </td>
                   </tr>
               </tbody>
