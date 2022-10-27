@@ -203,6 +203,7 @@ session_start();
                 <table class="min-w-full">
                   <thead class="bg-white border-b">
                     <tr>
+<<<<<<< Updated upstream
                       <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                         No
                       </th>
@@ -254,6 +255,62 @@ session_start();
                     $no = $no + 1;
                   }
                   ?>
+=======
+                    <th scope="col" class="py-3 px-6">
+              No
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Nama
+            </th>
+            <th scope="col" class="py-3 px-6">
+              NIM
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Angkatan
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Status
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+              <!-- ambil data dari database -->
+        <?php
+
+
+          $sql = "SELECT * FROM data_mahasiswa
+          ";
+          $result = $db->query($sql);
+          $nomor = 0;
+
+          // $sql1 = "SELECT * FROM skripsi";
+
+          // $result1 = $db->query($sql1);
+          if(!$result){
+          die("Invalid query: " . $db->error);
+        }
+        ?>
+        <!-- udah ambil data -->
+        
+       
+            <?php 
+              while(($row = $result->fetch_assoc())){
+                $nomor++;
+                echo "<tr> 
+                <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$nomor. "</td>
+                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["nama"]. "</td>
+                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["nim"]. "</td>
+                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["angkatan"]. "</td>
+                  <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["status"]. "</td>
+
+                 </td>
+                </tr>";
+              }
+              
+
+              ?>
+
+>>>>>>> Stashed changes
                   </tbody>
                 </table>
               </div>
