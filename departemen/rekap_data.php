@@ -1,6 +1,11 @@
 <!DOCTYPE html>
-<html>
 
+<?php
+require_once('../db_login.php');
+session_start();
+?>
+
+<html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -219,92 +224,38 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Anisatul Ma'rifah
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        24060120140154
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        5
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        2020
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        3.80
-                      </td>
-                    </tr>
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Farah Tisti Paranpara
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        24060120140145
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        5
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                       2020
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                       3.80
-                    </tr>
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Hasna Paramesti Ahmad
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        24060120140141
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        5
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      2020
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      3.80
-                    </tr>
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">4</td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                       Garry Yehosyafat
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        24060120140141
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        5
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      2020
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      3.80
-                    </tr>
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">5</td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                       Ratu Aubrey
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        24060120140141
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        5
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      2020
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      3.80
-                    </tr>
+                  <?php
+                  $query_param = $_SERVER["QUERY_STRING"];
+                  $sql = "";
+                  if ($query_param) {
+                    $name = strtolower(explode("=", $query_param)[1]);
+                    $sql = "SELECT * FROM data_mahasiswa WHERE LOWER(nama) LIKE '%$name%'";
+                  } else {
+                    $sql = "SELECT * FROM data_mahasiswa";
+                  }
+
+                  $result = $db->query($sql);
+
+                  if (!$result) {
+                    die("Invalid query: " . $db->error);
+                  }
+                  ?>
+                  <!-- udah ambil data -->
+
+
+                  <?php
+                  $no = 1;
+                  while ($row = $result->fetch_assoc()) {
+                    echo "<tr> 
+                          <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $no . "</td>
+                          <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["nama"] . "</td>
+                          <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["nim"] . "</td>
+                          <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["semester"] . "</td>
+                          <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["angkatan"] . "</td>
+                          </tr>";
+                    $no = $no + 1;
+                  }
+                  ?>
                   </tbody>
                 </table>
               </div>
