@@ -218,9 +218,7 @@ session_start();
                       <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                         Angkatan
                       </th>
-                      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                        Nilai
-                      </th>
+
                     </tr>
                   </thead>
                   <tbody>
