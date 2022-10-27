@@ -56,15 +56,15 @@ $dosen = $result->fetch_object();
 
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-5">
             <div>
-              <a href="#" type="button" data-modal-toggle="addModal" class="flex justify-center mb-2 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+              <a href="data_pkl.php" type="button" data-modal-toggle="addModal" class="flex justify-center mb-2 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 Data Mahasiswa PKL</a>
-              <a href="#" type="button" data-modal-toggle="addModal" class="flex justify-center mb-2 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+              <a href="data_skripsi.php" type="button" data-modal-toggle="addModal" class="flex justify-center mb-2 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 Data Mahasiswa Skripsi</a>
-              <a href="#" type="button" data-modal-toggle="addModal" class="flex justify-center mb-2 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+              <a href="data_mahasiswa.php" type="button" data-modal-toggle="addModal" class="flex justify-center mb-2 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 Data Mahasiswa</a>
-              <a href="#" type="button" data-modal-toggle="addModal" class="flex justify-center mb-2 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+              <a href="verifikasi_data.php" type="button" data-modal-toggle="addModal" class="flex justify-center mb-2 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 Verifikasi</a>
-              <a href="#" type="button" data-modal-toggle="addModal" class="flex justify-center mb-2 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+              <a href="progress.php" type="button" data-modal-toggle="addModal" class="flex justify-center mb-2 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 Progres Studi Mahasiswa</a>
             </div>
           </div>
