@@ -72,14 +72,14 @@ $pkl = $result->fetch_object();
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-6">
             <div class="text-2xl justify-center mb-6 text-center">Status PKL</div>
             <div>
-            <h1 class="text-3xl justify-center text-center"><?= $pkl->status ?></h1>
+            <h1 class="text-3xl justify-center text-center"><?= $pkl->status_pkl ?></h1>
             </div>
           </div>
 
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-6">
           <div class="text-2xl justify-center mb-6 text-center">Status Skripsi</div>
             <div>
-            <h1 class="text-3xl justify-center text-center"><?= $skripsi->status ?></h1>
+            <h1 class="text-3xl justify-center text-center"><?= $skripsi->status_skripsi ?></h1>
             </div>
           </div>
           </div>

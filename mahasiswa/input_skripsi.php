@@ -59,12 +59,12 @@ $skripsi = $result->fetch_object();
                   >Status Skripsi</label
                   >
                   <select
-                  id="status" name="status",
+                  id="status_skripsi" name="status_skripsi",
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                   <option default>Pilih Status Skripsi</option>
-                  <option <?= ($skripsi->status == 'Lulus') ? 'selected' : '' ?> value="Lulus">Lulus</option>
-                  <option <?= ($skripsi->status == 'Tidak Lulus') ? 'selected' : '' ?> value="Tidak Lulus">Tidak Lulus</option>
+                  <option <?= ($skripsi->status_skripsi == 'Lulus') ? 'selected' : '' ?> value="Lulus">Lulus</option>
+                  <option <?= ($skripsi->status_skripsi == 'Tidak Lulus') ? 'selected' : '' ?> value="Tidak Lulus">Tidak Lulus</option>
                 </select>
               </div>
               <div class="mb-2 w-full">
