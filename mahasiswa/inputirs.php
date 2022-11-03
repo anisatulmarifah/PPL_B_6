@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+
+<?php
+session_start();
+require_once('../db_login.php');
+$nim = $_SESSION['nim'];
+
+$query = "SELECT * FROM data_mahasiswa WHERE nim = $nim";
+$result = $db->query($query);
+
+$dosen = $result->fetch_object();
+?>
 <html>
 <link rel="stylesheet" href="style.css" />
 
@@ -31,34 +42,28 @@
               Jumlah SKS
             </th>
             <th scope="col" class="py-3 px-6">
-              IP Semester
-            </th>
-            <th scope="col" class="py-3 px-6">
               Lihat File
             </th>
-            <th scope="col" class="py-3 px-6">
-              Action
-            </th>
+
           </tr>
         </thead>
         <tbody>
 
           <?php
             require_once ("../db_login.php");
-            $query="SELECT nim,semester,jumlah_sks,ip,upload_file FROM irs WHERE nim='2147483647' ";
+            $query="SELECT * FROM irs, data_mahasiswa as m WHERE 
+            $nim = m.nim and
+            m.nim = irs.nim ";
             //balikin nim 
             $result= $db->query($query);
 
             while ($row = $result->fetch_object()){
               echo '<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">';
-              echo ' <td class="py-4 px-6"> '.$row->semester.' </td>';
+              echo ' <td class="py-4 px-6"> '.$row->semester_irs.' </td>';
               echo ' <td class="py-4 px-6"> '.$row->jumlah_sks.' </td>';
-              echo ' <td class="py-4 px-6"> '.$row->ip.' </td>';
-              echo '<td class="py-4 px-6"><a href="file/'.$row->upload_file.'" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a></td>';
-              echo '<td class="py-4 px-6 space-x-4">';
               
-              echo '<a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>';
-              echo '<a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>';
+              echo '<td class="py-4 px-6"><a href="file/'.$row->upload_file.'" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a></td>';
+            
               echo '</td>';
               //href=""
             }

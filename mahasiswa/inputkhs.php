@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+session_start();
+require_once('../db_login.php');
+$nim = $_SESSION['nim'];
+
+?>
 <html>
 <link rel="stylesheet" href="style.css" />
 
@@ -42,75 +48,34 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <td class="py-4 px-6">
-              4
-            </td>
 
-            <td class="py-4 px-6">
-              23
-            </td>
+          <?php
+            require_once ("../db_login.php");
+            $query="SELECT * FROM khs, data_mahasiswa as m WHERE 
+            $nim = m.nim and
+            m.nim = khs.nim";
+            //balikin nim 
+            $result= $db->query($query);
 
-            <td class="py-4 px-6">
-              3.70
-            </td>
+            while ($row = $result->fetch_object()){
+              echo '<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">';
+              echo ' <td class="py-4 px-6"> '.$row->semester_khs.' </td>';
+              echo ' <td class="py-4 px-6"> '.$row->jumlah_sks.' </td>';
+              echo ' <td class="py-4 px-6"> '.$row->ip.' </td>';
+              
+              echo '<td class="py-4 px-6"><a href="file/'.$row->upload_file.'" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a></td>';
+              echo '<td class="py-4 px-6 space-x-4">';
+              
+              echo '<a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>';
+              echo '<a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>';
+              echo '</td>';
+              //href=""
+            }
 
-            <td class="py-4 px-6">
-              <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a>
-            </td>
-
-            <td class="py-4 px-6 space-x-4">
-              <!-- Modal toggle -->
-              <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-              <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
-            </td>
-          </tr>
-
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <td class="py-4 px-6">
-              5
-            </td>
-
-            <td class="py-4 px-6">
-              24
-            </td>
-
-            <td class="py-4 px-6">
-              3.80
-            </td>
-
-            <td class="py-4 px-6">
-              <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a>
-            </td>
+          ?>
 
             <td class="py-4 px-6 space-x-4">
               <!-- Modal toggle -->
-              <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-              <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
-            </td>
-          </tr>
-
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <td class="py-4 px-6">
-              6
-            </td>
-
-            <td class="py-4 px-6">
-              21
-            </td>
-
-            <td class="py-4 px-6">
-              3.80
-            </td>
-
-            <td class="py-4 px-6">
-              <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Lihat File</a>
-            </td>
-
-            <td class="py-4 px-6 space-x-4">
-              <!-- Modal toggle -->
-              <a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-              <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
             </td>
           </tr>
 

@@ -4,7 +4,11 @@
 	<body>
 	
 		<?php 
+		session_start();
 		require_once('../db_login.php');
+			$nim = $_SESSION['nim'];
+			$query = "SELECT * FROM data_mahasiswa WHERE nim = $nim";
+			$result = $db->query($query);
 		
 			$ekstensi_diperbolehkan	= array('pdf');
 			$nama = $_FILES['file']['name'];
@@ -16,7 +20,7 @@
             $semester = $_POST["semester"];
             $sks = $_POST["jumlah_sks"];
             $ip = $_POST["ip"];
-            $nim = 24060120120000;
+            
 
  
 			if(in_array($ekstensi, $ekstensi_diperbolehkan) == true){
