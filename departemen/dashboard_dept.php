@@ -172,7 +172,7 @@
        <canvas id="grafikMahasiswaLulusPKL"></canvas>
        <!-- End of Chart Element -->
      </div>
-     <div class="flex w-full justify-center items-center">
+     <div class="mb-10 flex w-full justify-center items-center">
       <a
          href="javascript:alert('still coming soon!')"
          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
