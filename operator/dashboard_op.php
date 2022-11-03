@@ -123,7 +123,7 @@ $operator = $result->fetch_object();
 
           $jumlahmhs = $result->fetch_object()->jumlah;
 
-          $query = "SELECT nama, COUNT(*) AS jml FROM data_dosen";
+          $query = "SELECT nama_dosen, COUNT(*) AS jml FROM data_dosen";
           $result = $db->query($query);
 
           $jumlahdosen = $result->fetch_object()->jml;

@@ -77,6 +77,19 @@ $dosen = $result->fetch_object();
             <canvas id="grafikMahasiswaLulusPKL"></canvas>
             <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <?php
+            require_once('../db_login.php');
+            $query = "SELECT angkatan, COUNT(nim) as jml FROM pkl GROUP BY angkatan";
+            $result = $db->query($query);
+
+            $pklangkatan2017 = $result->fetch_object()->jml;
+            $pklangkatan2018 = $result->fetch_object()->jml;
+            $pklangkatan2019 = $result->fetch_object()->jml;
+            $pklangkatan2020 = $result->fetch_object()->jml;
+            $pklangkatan2021 = $result->fetch_object()->jml;
+            $pklangkatan2022 = $result->fetch_object()->jml;
+
+            ?>
             <script>
               const ctx = document.getElementById("grafikMahasiswaLulusPKL");
               const myChart = new Chart(ctx, {
@@ -86,7 +99,7 @@ $dosen = $result->fetch_object();
                   datasets: [
                     {
                       label: "# of Votes",
-                      data: [12, 19, 3, 5, 2, 3],
+                      data: [<?= $pklangkatan2022 ?>, <?= $pklangkatan2021 ?>, <?= $pklangkatan2020 ?>, <?= $pklangkatan2019 ?>, <?= $pklangkatan2018 ?>, <?= $pklangkatan2017 ?>],
                       backgroundColor: [
                         "rgba(255, 99, 132, 0.2)",
                         "rgba(54, 162, 235, 0.2)",
@@ -123,6 +136,19 @@ $dosen = $result->fetch_object();
             <div class="text-2xl justify-center mb-6 text-center">Mahasiswa Lulus Skripsi</div>
             <canvas id="grafikMahasiswaSkripsi"></canvas>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <?php
+            require_once('../db_login.php');
+            $query = "SELECT angkatan, COUNT(nim) as jumlah FROM skripsi GROUP BY angkatan";
+            $result = $db->query($query);
+
+            $angkatan2017 = $result->fetch_object()->jumlah;
+            $angkatan2018 = $result->fetch_object()->jumlah;
+            $angkatan2019 = $result->fetch_object()->jumlah;
+            $angkatan2020 = $result->fetch_object()->jumlah;
+            $angkatan2021 = $result->fetch_object()->jumlah;
+            $angkatan2022 = $result->fetch_object()->jumlah;
+
+            ?>
             <script>
               const ctxx = document.getElementById("grafikMahasiswaSkripsi");
               const myChartskripsi = new Chart(ctxx, {
@@ -132,7 +158,7 @@ $dosen = $result->fetch_object();
                   datasets: [
                     {
                       label: "# of Votes",
-                      data: [12, 19, 3, 5, 2, 3],
+                      data: [<?= $angkatan2022 ?>, <?= $angkatan2021 ?>, <?= $angkatan2020 ?>, <?= $angkatan2019 ?>, <?= $angkatan2018 ?>, <?= $angkatan2017 ?>],
                       backgroundColor: [
                         "rgba(255, 99, 132, 0.2)",
                         "rgba(54, 162, 235, 0.2)",
