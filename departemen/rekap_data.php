@@ -11,6 +11,16 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+    <!-- TAMBAH -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script>
+      $(document).ready(function() {
+        $('#table').DataTable();
+      });
+  </script>
 </head>
 
 <body>
@@ -33,7 +43,7 @@ session_start();
   <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Data Mahasiswa Skripsi</span>
+        <span class="logo-name">Rekap Data Mahasiswa</span>
       </div>
       <div class="sidebar">
         <div class="logo">
@@ -200,7 +210,7 @@ session_start();
           <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
               <div class="overflow-hidden">
-                <table class="min-w-full">
+                <table id="table" class="min-w-full">
                   <thead class="bg-white border-b">
                     <tr>
                       <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
@@ -264,7 +274,11 @@ session_start();
     </form>
     <!-- End of Content -->
   </div>
-
+  <script>
+      $(document).ready(function() {
+        $('#table').DataTable();
+      });
+    </script>
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </body>
 
