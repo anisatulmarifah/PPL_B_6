@@ -127,7 +127,7 @@ session_start();
     <link rel="stylesheet" href="font.css" />
     <h1 class="text-4xl font-medium mx-32 mb-2 my-20">Rekap Data Mahasiswa</h1>
     <div class="w-96 justify-center flex items-center mx-auto space-x-1">
-      <a href="#" class="px-1 py-2 font-bold text-gray-500 hover:bg-blue-400 hover:text-white">
+      <!-- <a href="#" class="px-1 py-2 font-bold text-gray-500 hover:bg-blue-400 hover:text-white">
           <
       </a>
       <a href="#" class="px-1 py-2 text-gray-700 hover:bg-blue-400 hover:text-white">
@@ -144,7 +144,7 @@ session_start();
       </a>
       <a href="#" class="px-1 py-2 font-bold text-gray-500 hover:bg-blue-400 hover:text-white">
           >
-      </a>
+      </a> -->
   </div>
     </div>
     <head> 
