@@ -24,10 +24,10 @@ require_once('../db_login.php');
 
     <!-- End of Navbar -->
     <div class="">
-      <!-- Content -->
       <h1 class="text-4xl mx-20 my-8 mt-24">Detail Mahasiswa PKL (Tidak Lulus)</h1>
-      <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg"><br>
+      <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg"><br><br>
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <table id= "table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                       <th scope="col" class="py-3 px-6">
@@ -56,7 +56,7 @@ require_once('../db_login.php');
                 <?php
 
                 $sql = "SELECT * FROM data_mahasiswa as m, pkl
-                WHERE m.nim = pkl.nim AND pkl.status_pkl = 'Tidak Lulus' AND pkl.angkatan = '2017' ORDER BY m.nim ASC";
+                WHERE m.nim = pkl.nim AND pkl.status_pkl = 'Tidak Lulus' AND pkl.angkatan = '2019' ORDER BY m.nim ASC";
                 $result = $db->query($sql);
                 $nomor = 0;
 
@@ -87,8 +87,6 @@ require_once('../db_login.php');
                   ?>
               </tbody>
           </table>
-          
-      </div>
 
   <meta charset="UTF-8" />
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -187,32 +185,39 @@ require_once('../db_login.php');
         navBar.classList.remove("open");
       });
     </script>
+    <script>
+      $(document).ready(function() {
+        $('#table').DataTable();
+      });
+    </script>
   </body>
 
    <br></br>
-   <div class="flex w-full justify-start mx-20 mt-3">
+   <div class="flex w-full justify-start mx-20 mt2">
 
-     <a href = "pkllulus2017.php">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full mr-2">
-       
-       Lulus
-     </button></a>
-    
-    </body>
-    <a href = "pkltlulus2017.php">
-     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full ml-2">
+    <a href = "pkllulus2019.php">
+     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4 rounded-full mr-2">
       
-      Tidak Lulus
+      Lulus
     </button></a>
-
-    <a href = "pklbm2017.php">
+   
+   </body>
+   <a href = "pkltlulus2019.php">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4  rounded-full ml-2">
+     
+     Tidak Lulus
+   </button></a>
+   
+   <a href = "pklbm2019.php">
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4  rounded-full ml-2">
      
      Belum Mengambil
    </button></a>
+
+  </body>
+   
+
+  </body>
+ </div>
  
-   </body>
-    
- 
-   </body>
-  </div>
+  </html>

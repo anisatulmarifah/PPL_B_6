@@ -104,7 +104,7 @@ require_once('../db_login.php');
    <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Data Mahasiswa Skripsi</span>
+        <span class="logo-name">Data Mahasiswa PKL</span>
       </div>
       <div class="sidebar">
         <div class="logo">
@@ -206,6 +206,12 @@ require_once('../db_login.php');
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4  rounded-full ml-2">
      
      Tidak Lulus
+   </button></a>
+   
+   <a href = "pklbm2017.php">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4  rounded-full ml-2">
+     
+     Belum Mengambil
    </button></a>
 
   </body>
