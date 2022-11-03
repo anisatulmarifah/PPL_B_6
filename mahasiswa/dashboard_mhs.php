@@ -99,8 +99,17 @@ $pkl = $result->fetch_object();
             <h1 class="text-3xl justify-center text-center">4.00</h1>
           </div>
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-3">
+            <?php 
+            require_once('../db_login.php');
+            $query = "SELECT SUM(jumlah_sks) AS jumlah FROM irs WHERE nim = $nim";
+            $result = $db->query($query);
+            $sks = $result->fetch_object();
+
+            $total_sks = $sks->jumlah;
+
+            ?>
             <div class="text-2xl justify-center mb-6 text-center">SKS Kumulatif</div>
-            <h1 class="text-3xl justify-center text-center">120</h1>
+            <h1 class="text-3xl justify-center text-center"><?= $total_sks ?></h1>
           </div>
         </div>
 
