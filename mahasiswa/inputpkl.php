@@ -72,7 +72,6 @@
                 </div>
             </div>
             <div class="col-span-4">
-<<<<<<< Updated upstream
               <?php
                 $sql = "SELECT nilai_pkl FROM nilai WHERE nim = '$nim'";
                 $result = $db->query($query);
@@ -89,18 +88,6 @@
                     class="mb-6 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                     Save</button>
               </div>
-=======
-                <div class="bg-white border shadow-md rounded-lg p-14">
-                    <div class="text-2xl justify-center mb-6 text-center">Nilai PKL</div>
-                    <h1 class="text-7xl justify-center text-center">A</h1>
-                </div>
-                <div class="flex justify-center mt-8">
-                    <button
-                      type="submit"
-                      class="mb-6 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                      Save</button>
-                </div>
->>>>>>> Stashed changes
             </div>
         </div>
 
@@ -215,7 +202,6 @@
         overlay.addEventListener("click", () => {
           navBar.classList.remove("open");
         });
-<<<<<<< Updated upstream
 
         const status = document.getElementById('status_pkl');
         function refreshFormState() {
@@ -229,8 +215,6 @@
         }
         status.addEventListener('change', refreshFormState);
         refreshFormState();
-=======
->>>>>>> Stashed changes
       </script>
     </body>
     <head>
