@@ -31,6 +31,97 @@ $operator = $result->fetch_object();
   </head>
   <body>
     <!-- Navbar -->
+    <!--<title>Sidebar Menu | Side Navigation Bar</title>-->
+    <!-- CSS -->
+    
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+  <nav>
+      <div class="logo">
+        <i class="bx bx-menu menu-icon"></i>
+        <span class="logo-name">Dashboard</span>
+      </div>
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name">Universitas Diponegoro</span>
+        </div>
+
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list">
+              <a href="dashboard_op.php" class="nav-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Home</span>
+              </a>
+            </li>
+            
+            <div class="list"> 
+             <a href="data_mahasiswa.php" class="nav-link"> 
+                <i class="bx bx-pie-chart-alt-2 icon"></i>
+                <span class="link">Manajemen Data Mahasiswa </span>  
+              </a>
+              </a>
+             </div>
+            <li class="list">
+              <a href="data_dosen.php" class="nav-link">
+                <i class="bx bx-paste icon" ></i>
+                <span class="link">Menejemen Data Dosen</span>
+              </a>
+            </li>
+
+            <li class="list">
+                <a href="input_data.php" class="nav-link">
+                  <i class="bx bx-folder-open icon"></i>
+                  <span class="link">Input Data Mahasiswa</span>
+                </a>
+              </li>
+          </ul>
+
+          <div class="bottom-cotent">
+            <li class="list">
+              <a href="javascript:alert('still coming soon!')" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link">Settings</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="../logout.php" class="nav-link">
+                <i class="bx bx-log-out icon"></i>
+                <span class="link">Logout</span>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="overlay"></section>
+
+    <script>
+      const navBar = document.querySelector("nav"),
+        menuBtns = document.querySelectorAll(".menu-icon"),
+        overlay = document.querySelector(".overlay");
+
+      menuBtns.forEach((menuBtn) => {
+        menuBtn.addEventListener("click", () => {
+          navBar.classList.toggle("open");
+        });
+      });
+
+      overlay.addEventListener("click", () => {
+        navBar.classList.remove("open");
+      });
+    </script>
+  </body>
+  <head>
+
+  <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 
     <!-- End of Navbar -->
     <!-- test -->

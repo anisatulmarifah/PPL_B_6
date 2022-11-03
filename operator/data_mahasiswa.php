@@ -360,7 +360,7 @@ require_once('../db_login.php')
   <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Dashboard</span>
+        <span class="logo-name">Data Mahasiswa</span>
       </div>
       <div class="sidebar">
         <div class="logo">

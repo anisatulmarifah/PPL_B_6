@@ -172,7 +172,7 @@ if (isset($_POST["save"])){
       <nav>
         <div class="logo">
           <i class="bx bx-menu menu-icon"></i>
-          <span class="logo-name">Dashboard</span>
+          <span class="logo-name">Input Data Mahasiswa</span>
         </div>
         <div class="sidebar">
           <div class="logo">
