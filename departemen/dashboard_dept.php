@@ -21,7 +21,7 @@
   <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Data Mahasiswa Skripsi</span>
+        <span class="logo-name">Dashboard Departemen</span>
       </div>
       <div class="sidebar">
         <div class="logo">
@@ -173,6 +173,12 @@
        <!-- End of Chart Element -->
      </div>
      <div class="flex w-full justify-center items-center">
+      <a
+         href="javascript:alert('still coming soon!')"
+         class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+       >
+         2022
+       </a>
        <a
          href="javascript:alert('still coming soon!')"
          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
@@ -216,12 +222,12 @@
  $query = "SELECT angkatan, COUNT(nim) as jml FROM data_mahasiswa GROUP BY angkatan";
  $result = $db->query($query);
 
- $angkatan2016 = $result->fetch_object()->jml;
  $angkatan2017 = $result->fetch_object()->jml;
  $angkatan2018 = $result->fetch_object()->jml;
  $angkatan2019 = $result->fetch_object()->jml;
  $angkatan2020 = $result->fetch_object()->jml;
  $angkatan2021 = $result->fetch_object()->jml;
+ $angkatan2022 = $result->fetch_object()->jml;
 
  ?>
  <script>
@@ -229,11 +235,11 @@
    const myChart = new Chart(ctx, {
      type: "bar",
      data: {
-       labels: ["2021", "2020", "2019", "2018", "2017", "2016"],
+       labels: ["2022", "2021", "2020", "2019", "2018", "2017"],
        datasets: [
          {
            label: "# of Votes",
-           data: [<?= $angkatan2021 ?>, <?= $angkatan2020 ?>, <?= $angkatan2019 ?>, <?= $angkatan2018 ?>, <?= $angkatan2017 ?>,<?= $angkatan2016 ?>],
+           data: [<?= $angkatan2022 ?>, <?= $angkatan2021 ?>, <?= $angkatan2020 ?>, <?= $angkatan2019 ?>, <?= $angkatan2018 ?>, <?= $angkatan2017 ?>],
            backgroundColor: [
              "rgba(255, 99, 132, 0.2)",
              "rgba(54, 162, 235, 0.2)",
