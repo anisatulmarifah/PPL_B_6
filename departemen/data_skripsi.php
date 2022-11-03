@@ -23,7 +23,7 @@
       </div>
       <div class="flex w-full justify-center items-center">
         <a
-          href="skripsi_detail.php"
+          href="skripsilulus2017.php"
           class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
         >
           2017
@@ -66,6 +66,19 @@
   </body>
   <!-- Chart Configuration -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <?php
+  require_once('../db_login.php');
+  $query = "SELECT angkatan, COUNT(nim) as jml FROM skripsi GROUP BY angkatan";
+  $result = $db->query($query);
+
+  $angkatan2017 = $result->fetch_object()->jml;
+  $angkatan2018 = $result->fetch_object()->jml;
+  $angkatan2019 = $result->fetch_object()->jml;
+  $angkatan2020 = $result->fetch_object()->jml;
+  $angkatan2021 = $result->fetch_object()->jml;
+  $angkatan2022 = $result->fetch_object()->jml;
+
+  ?>
   <script>
     const ctx = document.getElementById("grafikMahasiswaLulusPKL");
     const myChart = new Chart(ctx, {
@@ -75,7 +88,7 @@
         datasets: [
           {
             label: "# of Votes",
-            data: [12, 19, 3, 5, 2, 3],
+            data: [<?= $angkatan2022 ?>, <?= $angkatan2021 ?>, <?= $angkatan2020 ?>, <?= $angkatan2019 ?>, <?= $angkatan2018 ?>, <?= $angkatan2017 ?>],
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
