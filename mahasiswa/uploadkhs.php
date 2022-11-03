@@ -19,6 +19,8 @@
             $sks = $_POST["jumlah_sks"];
             $ip = $_POST["ip"];
 			$nim = $_SESSION['nim'];
+			$query = "SELECT * FROM data_mahasiswa WHERE nim = $nim";
+			$result = $db->query($query);
  
 			if(in_array($ekstensi, $ekstensi_diperbolehkan) == true){
 				if($ukuran < 1044070){			
