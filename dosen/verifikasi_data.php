@@ -39,6 +39,9 @@ session_start();
                           Semester
                       </th>
                       <th scope="col" class="py-3 px-6">
+                          Status Verifikasi
+                      </th>
+                      <th scope="col" class="py-3 px-6">
                           Detail
                       </th>
                       <th scope="col" class="py-3 px-6">
@@ -54,7 +57,7 @@ session_start();
                 $name = strtolower(explode("=", $query_param)[1]);
                 $sql = "SELECT * FROM data_mahasiswa WHERE LOWER(nama) LIKE '%$name%'";
               } else {
-                $sql = "SELECT * FROM data_mahasiswa";
+                $sql = "SELECT * FROM data_mahasiswa, verifikasi WHERE data_mahasiswa.nim = verifikasi.nim";
               }
 
               $result = $db->query($sql);
@@ -74,13 +77,27 @@ session_start();
                       <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["nama"] . "</td>
                       <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["nim"] . "</td>
                       <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["semester"] . "</td>
+                      <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["status_verifikasi"] . "</td>
                       <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
                         <a href='detail_data.php' class='font-medium text-green-600 dark:text-green-500 hover:underline'>Lihat Detail</a>
                       </td>
                       <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
-                        <a href='edit_data.php' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Verified</a>
-                        <a href='delete_data.php' class='font-medium text-red-600 dark:text-red-500 hover:underline'>Unverified</a>
+                        <form action='postv.php' method='POST'>
+                          <input type='hidden' name='nim' value='" . $row["nim"] . "'>
+                          <input type='hidden' name='status_verifikasi' value='Verified '>
+                          <button type='submit' name='submit'class='font-medium text-green-600 dark:text-green-500 hover:underline''>
+                            Verify
+                          </button>
+                        </form>
+                        <form action='postv.php' method='POST'>
+                          <input type='hidden' name='nim' value='" . $row["nim"] . "'>
+                          <input type='hidden' name='status_verifikasi' value='Unverified '>
+                          <button type='submit' name='submit' class='font-medium text-red-600 dark:text-red-500 hover:underline''>
+                            Unverify
+                          </button>
+                        </form>
                       </td>
+                      
                       </tr>";
                 $no = $no + 1;
               }
