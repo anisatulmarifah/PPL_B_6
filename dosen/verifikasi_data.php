@@ -2,6 +2,7 @@
 <?php
 require_once('../db_login.php');
 session_start();
+$nip = $_SESSION['nip'];
 ?>
 
 <html>
@@ -57,7 +58,10 @@ session_start();
                 $name = strtolower(explode("=", $query_param)[1]);
                 $sql = "SELECT * FROM data_mahasiswa WHERE LOWER(nama) LIKE '%$name%'";
               } else {
-                $sql = "SELECT * FROM data_mahasiswa, verifikasi WHERE data_mahasiswa.nim = verifikasi.nim";
+                $sql = "SELECT * FROM data_mahasiswa as m, verifikasi, data_dosen as d WHERE 
+                m.nim = verifikasi.nim
+                and m.doswal = d.nama_dosen
+                and $nip = d.nip";
               }
 
               $result = $db->query($sql);
