@@ -19,14 +19,13 @@
 
             $semester = $_POST["semester"];
             $sks = $_POST["jumlah_sks"];
-            $ip = $_POST["ip"];
             
 
  
 			if(in_array($ekstensi, $ekstensi_diperbolehkan) == true){
 				if($ukuran < 1044070){			
-					move_uploaded_file($file_tmp, 'file/'.$nama);
-					$query = $db->query("INSERT INTO irs VALUES($nim, $semester, $sks, $ip, '$nama')");
+					move_uploaded_file($file_tmp, 'fileirs/'.$nama);
+					$query = $db->query("INSERT INTO irs VALUES($nim, $semester, $sks, '$nama')");
 					if($query){
 						echo '<script>alert("Data berhasil diupdate");</script>';
     					echo '<script>window.location.href = "inputirs.php";</script>';
