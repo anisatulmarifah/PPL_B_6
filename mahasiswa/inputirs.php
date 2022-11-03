@@ -324,6 +324,10 @@
         });
       });
 
+      overlay.addEventListener("click", () => {
+        navBar.classList.remove("open");
+      });
+
     </script>
   </body>
 
