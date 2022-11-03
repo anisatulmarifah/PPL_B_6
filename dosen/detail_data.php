@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<?php
+session_start();
+require_once('../db_login.php');
+$nim = $_GET['nim'];
+
+$query = "SELECT * FROM data_mahasiswa WHERE nim = $nim";
+$result = $db->query($query);
+
+$mahasiswa = $result->fetch_object();
+?>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -139,13 +149,25 @@
                 </svg>
             </div>
             <div class="w-6/12">
+                  <!-- ambil data dari database -->
+                  <?php
+                  $sql = "SELECT * FROM data_mahasiswa WHERE $nim=nim";
+                  $result = $db->query($sql);
+                  $nomor = 0;
+                  $row = $result->fetch_assoc();
+
+                  // $result1 = $db->query($sql1);
+                  if(!$result){
+                  die("Invalid query: " . $db->error);
+                  }
+                  ?>
                 <div class="mb-6">
                 <label
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >Nama</label
                 >
                 <input
-                    type="text"
+                    type="text" name="nama" value="<?php echo $row['nama']; ?>"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 />
                 </div>
@@ -156,7 +178,7 @@
                     >NIM</label
                     >
                     <input
-                    type="text"
+                    type="text" name="nim" value="<?php echo $row['nim']; ?>"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     />
                 </div>
@@ -166,7 +188,7 @@
                     >Semester</label
                     >
                     <input
-                    type="text"
+                    type="text" name="semester" value="<?php echo $row['semester']; ?>"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     />
                 </div>
@@ -188,22 +210,6 @@
                 </div>
                 </div>
             </div>
-            </div>
-            <div class="flex gap-x-96">
-            <div class="flex justify-start mt-8">
-                <text class="text-red-600">*IRS belum diisi!</text>
-            </div>
-            <div class="flex justify-end mt-8">
-                <button
-                type="submit"
-                class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-12 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                >
-                Save
-                </button>
-            </div>
-            </div>
-            <div class="flex justify-start -my-5">
-            <text class="text-red-600">*IRS belum disetujui dosen wali!</text>
             </div>
         </div>
       </form>

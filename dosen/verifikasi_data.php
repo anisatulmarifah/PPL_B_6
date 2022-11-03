@@ -79,7 +79,7 @@ session_start();
                       <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["semester"] . "</td>
                       <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>" . $row["status_verifikasi"] . "</td>
                       <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
-                        <a href='detail_data.php' class='font-medium text-green-600 dark:text-green-500 hover:underline'>Lihat Detail</a>
+                        <a href='detail_data.php?nim=" . $row["nim"] . "' class='font-medium text-green-600 dark:text-green-500 hover:underline'>Lihat Detail</a>
                       </td>
                       <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
                         <form action='postv.php' method='POST'>
