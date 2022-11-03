@@ -56,7 +56,7 @@ require_once('../db_login.php');
                 <?php
 
                 $sql = "SELECT * FROM data_mahasiswa as m, pkl
-                WHERE m.nim = pkl.nim AND pkl.status_pkl = 'Belum Mengambil' AND pkl.angkatan = '2020' ORDER BY m.nim ASC";
+                WHERE m.nim = pkl.nim AND pkl.status_pkl = 'Belum Mengambil' AND pkl.angkatan = '2021' ORDER BY m.nim ASC";
                 $result = $db->query($sql);
                 $nomor = 0;
 

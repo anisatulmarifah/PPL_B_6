@@ -56,7 +56,7 @@ require_once('../db_login.php');
                 <?php
 
                 $sql = "SELECT * FROM data_mahasiswa as m, pkl
-                WHERE m.nim = pkl.nim AND pkl.status_pkl = 'Belum Mengambil' AND pkl.angkatan = '2020' ORDER BY m.nim ASC";
+                WHERE m.nim = pkl.nim AND pkl.status_pkl = 'Belum Mengambil' AND pkl.angkatan = '2022' ORDER BY m.nim ASC";
                 $result = $db->query($sql);
                 $nomor = 0;
 
@@ -208,7 +208,7 @@ require_once('../db_login.php');
      Tidak Lulus
    </button></a>
 
-   <a href = "pklbm2020.php">
+   <a href = "pklbm2022.php">
      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4 rounded-full ml-2">
       
       Belum Mengambil
