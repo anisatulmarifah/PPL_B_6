@@ -1,25 +1,3 @@
-<?php
-session_start();
-
-require_once('../db_login.php');
-// if (!isset($_SESSION['nim'])){
-//   header('Location: ../login.php');
-//sds }
-
-$nim = $_SESSION['nim'];
-
-$query = "SELECT * FROM data_mahasiswa WHERE nim = $nim";
-$result = $db->query($query);
-
-$mahasiswa = $result->fetch_object();
-
-$query = "SELECT * FROM pkl WHERE nim = $nim";
-$result = $db->query($query);
-
-$status = $result->fetch_object();
-
-?>
-
 <!DOCTYPE html>
 <html>
   <link rel="stylesheet" href="style.css" />
@@ -37,36 +15,28 @@ $status = $result->fetch_object();
     <!-- End of Navbar -->
     <div class="">
       <!-- Content -->
-      <h1 class="text-4xl mx-20 my-8 mt-24">Input Progress PKL</h1>
-      <form class="w-full" method="POST" action="post_pkl.php">
-        <!-- ditambah method apa dan action apa, button type diganti submit -->
+      <h1 class="text-4xl mx-20 my-8 mt-20">Input Progress PKL</h1>
+      <form method="POST" action="update_pkl.php" enctype="multipart/form-data" class="w-full">
         <div class="grid grid-cols-12 gap-4 mx-20 my-8">
             <div class="bg-white border shadow-xl rounded-lg p-8 col-span-8">
                 <div class="flex gap-12">
                     <div>
-                      <img class="w-32 h-32 border-2 rounded-full" src="https://data.whicdn.com/images/357926627/original.jpg" alt="foto mahasiswa"></img>
+                        <div  class="w-32 h-32 rounded-full bg-gray-500"></div>
                     </div>
                     <div class="w-full">
-                        <div>
-                          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Lengkap</label>
-                          <input value="<?= $mahasiswa->nama ?>" type="text" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-                        </div>
-                        <div>
-                          <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIM</label>
-                          <input name="nim" value=<?= $nim ?> type="text" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-                        </div>
+                        <div>Farah Tisti Paranpara</div>
+                        <div>24060120140145</div>
                         <div class="">
                             <label
                               class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                               >Status PKL</label>
                             <select
-                              id='status_pkl'
-                              name="status_pkl",
+                              name="status"
                               class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                              <option default>Pilih Status PKL</option>
-                              <option <?= ($status->status_pkl == 'Belum Mengambil') ? 'selected' : '' ?>  value="Belum Mengambil">Belum Mengambil</option>
-                              <option <?= ($status->status_pkl == 'Lulus') ? 'selected' : '' ?> value="Lulus">Lulus</option>
-                              <option <?= ($status->status_pkl == 'Tidak Lulus') ? 'selected' : '' ?> value="Tidak Lulus">Tidak Lulus</option>
+                              <option selected>Pilih Status PKL</option>
+                              <option value="belum mengambil">Belum Mengambil</option>
+                              <option value="lulus">Lulus</option>
+                              <option value="tidak lulus">Tidak Lulus</option>
                             </select>
                         </div>
                         <div class="">
@@ -74,15 +44,14 @@ $status = $result->fetch_object();
                               class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                               >Nilai PKL</label>
                             <select
-                              id='nilai_pkl'
-                              name="nilai_pkl",
+                              name="nilai"
                               class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                              <option default>Pilih Nilai PKL</option>
-                              <option <?= ($status->nilai == 'A') ? 'selected' : '' ?> value="A">A</option>
-                              <option <?= ($status->nilai == 'B') ? 'selected' : '' ?> value="B">B</option>
-                              <option <?= ($status->nilai == 'C') ? 'selected' : '' ?> value="C">C</option>
-                              <option <?= ($status->nilai == 'D') ? 'selected' : '' ?> value="D">D</option>
-                              <option <?= ($status->nilai == 'E') ? 'selected' : '' ?> value="E">E</option>
+                              <option selected>Pilih Nilai PKL</option>
+                              <option value="A">A</option>
+                              <option value="B">B</option>
+                              <option value="C">C</option>
+                              <option value="D">D</option>
+                              <option value="E">E</option>
                             </select>
                         </div>
                           <div class="justify-center items-center w-full">
@@ -95,13 +64,15 @@ $status = $result->fetch_object();
                                     <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                                     <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                 </div>
-                                <input id="dropzone-file" type="file" class="hidden" />
+                                <input name="file" id="dropzone-file" type="file" class="hidden" />
+                                
                             </label>
                           </div>
                         </div>
                 </div>
             </div>
             <div class="col-span-4">
+<<<<<<< Updated upstream
               <?php
                 $sql = "SELECT nilai_pkl FROM nilai WHERE nim = '$nim'";
                 $result = $db->query($query);
@@ -118,6 +89,18 @@ $status = $result->fetch_object();
                     class="mb-6 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                     Save</button>
               </div>
+=======
+                <div class="bg-white border shadow-md rounded-lg p-14">
+                    <div class="text-2xl justify-center mb-6 text-center">Nilai PKL</div>
+                    <h1 class="text-7xl justify-center text-center">A</h1>
+                </div>
+                <div class="flex justify-center mt-8">
+                    <button
+                      type="submit"
+                      class="mb-6 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                      Save</button>
+                </div>
+>>>>>>> Stashed changes
             </div>
         </div>
 
@@ -144,12 +127,12 @@ $status = $result->fetch_object();
       <nav>
         <div class="logo">
           <i class="bx bx-menu menu-icon"></i>
-          <span class="logo-name">Data PKL</span>
+          <span class="logo-name">Dashboard</span>
         </div>
         <div class="sidebar">
           <div class="logo">
             <i class="bx bx-menu menu-icon"></i>
-            <span class="logo-name">Universitas Diponegoro</span>
+            <span class="logo-name">SIAK</span>
           </div>
   
           <div class="sidebar-content">
@@ -169,18 +152,19 @@ $status = $result->fetch_object();
                 </a>
               </li>
              
-              <div class="list"> 
-               <a href="inputirs.php" class="nav-link"> 
-                  <i class="bx bx-pie-chart-alt-2 icon"></i>
-                  <span class="link">Data IRS</span>  
-                </a>
-                </a>
-               </div>
-              <li class="list">
-                <a href="inputkhs.php" class="nav-link">
-                  <i class="bx bx-paste icon" ></i>
-                  <span class="link">Data KHS</span>
-                </a>
+              <div class="list">
+              <a href="inputkhs.php" class="nav-link">
+                <i class="bx bx-pie-chart-alt-2 icon"></i>
+                <span class="link">Data KHS</span>
+              </a>
+              </a>
+            </div>
+            <li class="list">
+              <a href="inputirs.php" class="nav-link">
+                <i class="bx bx-paste icon"></i>
+                <span class="link">Data IRS</span>
+              </a>
+            </li>
               </li>
               <li class="list">
                 <a href="inputpkl.php" class="nav-link">
@@ -192,12 +176,18 @@ $status = $result->fetch_object();
             <li class="list">
               <a href="input_skripsi.php" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
-                <span class="link">Data Skripsi</span>
+                <span class="link">Skripsi</span>
               </a>
             </li>
           </ul>
   
             <div class="bottom-cotent">
+              <li class="list">
+                <a href="javascript:alert('still coming soon!')" class="nav-link">
+                  <i class="bx bx-cog icon"></i>
+                  <span class="link">Settings</span>
+                </a>
+              </li>
               <li class="list">
                 <a href="../logout.php" class="nav-link">
                   <i class="bx bx-log-out icon"></i>
@@ -225,6 +215,7 @@ $status = $result->fetch_object();
         overlay.addEventListener("click", () => {
           navBar.classList.remove("open");
         });
+<<<<<<< Updated upstream
 
         const status = document.getElementById('status_pkl');
         function refreshFormState() {
@@ -238,6 +229,8 @@ $status = $result->fetch_object();
         }
         status.addEventListener('change', refreshFormState);
         refreshFormState();
+=======
+>>>>>>> Stashed changes
       </script>
     </body>
     <head>
