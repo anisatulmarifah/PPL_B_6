@@ -58,7 +58,6 @@
               echo '<td class="py-4 px-6 space-x-4">';
               
               echo '<a href="#" type="button" data-modal-toggle="editModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>';
-              echo '<a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>';
               echo '</td>';
               //href=""
             }
@@ -325,9 +324,6 @@
         });
       });
 
-      overlay.addEventListener("click", () => {
-        navBar.classList.remove("open");
-      });
     </script>
   </body>
 
