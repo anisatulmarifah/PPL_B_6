@@ -29,31 +29,31 @@
           2017
         </a>
         <a
-          href="#"
+          href="skripsilulus2018.php"
           class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
         >
           2018
         </a>
         <a
-          href="#"
+          href="javascript:alert('still coming soon!')"
           class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
         >
           2019
         </a>
         <a
-          href="#"
+          href="javascript:alert('still coming soon!')"
           class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
         >
           2020
         </a>
         <a
-          href="#"
+          href="javascript:alert('still coming soon!')"
           class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100"
         >
           2021
         </a>
         <a
-          href="#"
+          href="javascript:alert('still coming soon!')"
           class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 "
         >
           2022
