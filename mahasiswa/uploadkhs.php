@@ -5,7 +5,7 @@
 	
 		<?php 
 		session_start();
-		require_once('db_login.php');
+		require_once('../db_login.php');
 		
 			
 			$ekstensi_diperbolehkan	= array('pdf');
@@ -24,7 +24,7 @@
  
 			if(in_array($ekstensi, $ekstensi_diperbolehkan) == true){
 				if($ukuran < 1044070){			
-					move_uploaded_file($file_tmp, 'file/'.$nama);
+					move_uploaded_file($file_tmp, 'filekhs/'.$nama);
 					$query = $db->query("INSERT INTO khs VALUES($nim, $semester, $sks, $ip, '$nama')");
 					if($query){
 						echo '<script>alert("Data berhasil diupdate");</script>';
@@ -61,7 +61,7 @@
 					<img src="<?php echo "file/".$d['nama_file']; ?>">
 				</td>		
 			</tr>
-			
+			<?php } ?>
 		</table> -->
 
         <script>
