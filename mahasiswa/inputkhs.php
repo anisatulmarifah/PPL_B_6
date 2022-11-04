@@ -160,7 +160,7 @@ $nim = $_SESSION['nim'];
       <div id="addModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
         <div class="relative w-full max-w-2xl h-full md:h-auto">
           <!-- Modal content -->
-          <form action="#" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <form action="uploadkhs.php" method="POST" enctype="multipart/form-data" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <!-- Modal header -->
             <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
               <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
