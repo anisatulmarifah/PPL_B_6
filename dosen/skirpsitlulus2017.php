@@ -117,33 +117,27 @@ require_once('../db_login.php');
         <div class="sidebar-content">
           <ul class="lists">
             <li class="list">
-              <a href="dashboard_dept.php" class="nav-link">
+              <a href="dashboard_dosen.php" class="nav-link">
                 <i class="bx bx-home-alt icon"></i>
                 <span class="link">Home</span>
               </a>
             </li>
             
+            
             <li class="list">
-              <a href="data_dosen.php" class="nav-link">
+              <a href="data_mahasiswa.php" class="nav-link">
                 <i class="bx bx-spreadsheet icon" ></i>
-                <span class="link">Data Dosen</span>
+                <span class="link">Data Mahasiswa </span>
               </a>
             </li>
-
-            <li class="list">
-              <a href="data_skripsi.php" class="nav-link">
-                <i class="bx bx-spreadsheet icon" ></i>
-                <span class="link">Data Mahasiswa Skripsi</span>
-              </a>
-            </li>
-           
+          
             <div class="list"> 
-             <a href="data_pkl.php" class="nav-link">
+            <a href="verifikasi_data.php" class="nav-link"> 
                 <i class="bx bx-pie-chart-alt-2 icon"></i>
-                <span class="link">Data Mahasiswa PKL</span>  
+                <span class="link">Verifikasi</span>  
               </a>
               </a>
-             </div>
+            </div>
             <li class="list">
               <a href="progress.php" class="nav-link">
                 <i class="bx bx-paste icon" ></i>
@@ -151,9 +145,15 @@ require_once('../db_login.php');
               </a>
             </li>
             <li class="list">
-              <a href="rekap_data.php" class="nav-link">
+              <a href="data_pkl.php" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
-                <span class="link">Rekap Data Mahasiswa</span>
+                <span class="link">Data Mahasiswa PKL</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="data_skripsi.php" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
+                <span class="link">Data Mahasiswa Skripsi</span>
               </a>
             </li>
           </ul>

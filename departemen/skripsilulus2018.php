@@ -24,9 +24,8 @@ require_once('../db_login.php');
 
     <!-- End of Navbar -->
     <div class="">
-      <!-- Content -->
-      <h1 class="text-4xl mx-20 my-8 mt-24">Detail Mahasiswa Skripsi (Belum Lulus)</h1>
-      <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg"><br>
+      <h1 class="text-4xl mx-20 my-8 mt-24">Detail Mahasiswa Skripsi (Lulus)</h1>
+      <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg"><br><br>
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
@@ -56,7 +55,7 @@ require_once('../db_login.php');
                 <?php
 
                 $sql = "SELECT * FROM data_mahasiswa as m, skripsi
-                WHERE m.nim = skripsi.nim AND skripsi.status_skripsi = 'Tidak Lulus' AND skripsi.angkatan = '2017' ORDER BY m.nim ASC";
+                WHERE m.nim = skripsi.nim AND skripsi.status_skripsi = 'Lulus' AND skripsi.angkatan = '2018' ORDER BY m.nim ASC";
                 $result = $db->query($sql);
                 $nomor = 0;
 
@@ -87,8 +86,6 @@ require_once('../db_login.php');
                   ?>
               </tbody>
           </table>
-          
-      </div>
 
   <meta charset="UTF-8" />
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -187,26 +184,33 @@ require_once('../db_login.php');
         navBar.classList.remove("open");
       });
     </script>
+    <script>
+      $(document).ready(function() {
+        $('#table').DataTable();
+      });
+    </script>
   </body>
 
    <br></br>
-   <div class="flex w-full justify-start mx-20 mt-3">
+   <div class="flex w-full justify-start mx-20 mt2">
 
-    <a href = "skripsilulus2017.php">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4 rounded-full mr-2">
-        
-        Lulus
-      </button></a>
-    
-    </body>
-    <a href = "skripsitlulus2017.php">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4  rounded-full ml-2">
+    <a href = "skripsilulus2018.php">
+     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4 rounded-full mr-2">
       
-      Tidak Lulus
+      Lulus
     </button></a>
- 
+   
    </body>
-    
+   <a href = "skripsitlulus2018.php">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4  rounded-full ml-2">
+     
+     Tidak Lulus
+   </button></a>
+
+  </body>
+   
+
+  </body>
+ </div>
  
-   </body>
-  </div>
+  </html>

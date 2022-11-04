@@ -25,7 +25,7 @@ require_once('../db_login.php');
     <!-- End of Navbar -->
     <div class="">
       <!-- Content -->
-      <h1 class="text-4xl mx-20 my-8 mt-24">Detail Mahasiswa Skripsi (Belum Lulus)</h1>
+      <h1 class="text-4xl mx-20 my-8 mt-24">Detail Mahasiswa PKL (Tidak Lulus)</h1>
       <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg"><br>
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -46,7 +46,7 @@ require_once('../db_login.php');
                           Semester
                       </th>
                       <th scope="col" class="py-3 px-6">
-                          Nilai Skripsi
+                          Nilai PKL
                       </th>
                       
                   </tr>
@@ -55,8 +55,8 @@ require_once('../db_login.php');
                 <!-- ambil data dari database -->
                 <?php
 
-                $sql = "SELECT * FROM data_mahasiswa as m, skripsi
-                WHERE m.nim = skripsi.nim AND skripsi.status_skripsi = 'Tidak Lulus' AND skripsi.angkatan = '2017' ORDER BY m.nim ASC";
+                $sql = "SELECT * FROM data_mahasiswa as m, pkl
+                WHERE m.nim = pkl.nim AND pkl.status_pkl = 'Tidak Lulus' AND pkl.angkatan = '2018' ORDER BY m.nim ASC";
                 $result = $db->query($sql);
                 $nomor = 0;
 
@@ -106,7 +106,7 @@ require_once('../db_login.php');
    <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Data Mahasiswa Skripsi</span>
+        <span class="logo-name">Data Mahasiswa PKL</span>
       </div>
       <div class="sidebar">
         <div class="logo">
@@ -192,18 +192,24 @@ require_once('../db_login.php');
    <br></br>
    <div class="flex w-full justify-start mx-20 mt-3">
 
-    <a href = "skripsilulus2017.php">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4 rounded-full mr-2">
-        
-        Lulus
-      </button></a>
+     <a href = "pkllulus2018.php">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full mr-2">
+       
+       Lulus
+     </button></a>
     
     </body>
-    <a href = "skripsitlulus2017.php">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4  rounded-full ml-2">
+    <a href = "pkltlulus2018.php">
+     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full ml-2">
       
       Tidak Lulus
     </button></a>
+
+    <a href = "pklbm2018.php">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4  rounded-full ml-2">
+     
+     Belum Mengambil
+   </button></a>
  
    </body>
     

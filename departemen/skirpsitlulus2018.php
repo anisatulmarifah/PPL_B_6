@@ -56,7 +56,7 @@ require_once('../db_login.php');
                 <?php
 
                 $sql = "SELECT * FROM data_mahasiswa as m, skripsi
-                WHERE m.nim = skripsi.nim AND skripsi.status_skripsi = 'Tidak Lulus' AND skripsi.angkatan = '2017' ORDER BY m.nim ASC";
+                WHERE m.nim = skripsi.nim AND skripsi.status_skripsi = 'Tidak Lulus' AND skripsi.angkatan = '2018' ORDER BY m.nim ASC";
                 $result = $db->query($sql);
                 $nomor = 0;
 
@@ -192,15 +192,15 @@ require_once('../db_login.php');
    <br></br>
    <div class="flex w-full justify-start mx-20 mt-3">
 
-    <a href = "skripsilulus2017.php">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4 rounded-full mr-2">
-        
-        Lulus
-      </button></a>
+     <a href = "skripsilulus2018.php">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full mr-2">
+       
+       Lulus
+     </button></a>
     
     </body>
-    <a href = "skripsitlulus2017.php">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4  rounded-full ml-2">
+    <a href = "skripsitlulus2018.php">
+     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full ml-2">
       
       Tidak Lulus
     </button></a>

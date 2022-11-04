@@ -24,10 +24,10 @@ require_once('../db_login.php');
 
     <!-- End of Navbar -->
     <div class="">
-      <!-- Content -->
-      <h1 class="text-4xl mx-20 my-8 mt-24">Detail Mahasiswa Skripsi (Belum Lulus)</h1>
-      <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg"><br>
+      <h1 class="text-4xl mx-20 my-8 mt-24">Detail Mahasiswa PKL (Belum Mengambil)</h1>
+      <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg"><br><br>
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <table id= "table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                       <th scope="col" class="py-3 px-6">
@@ -46,7 +46,7 @@ require_once('../db_login.php');
                           Semester
                       </th>
                       <th scope="col" class="py-3 px-6">
-                          Nilai Skripsi
+                          Nilai PKL
                       </th>
                       
                   </tr>
@@ -55,8 +55,8 @@ require_once('../db_login.php');
                 <!-- ambil data dari database -->
                 <?php
 
-                $sql = "SELECT * FROM data_mahasiswa as m, skripsi
-                WHERE m.nim = skripsi.nim AND skripsi.status_skripsi = 'Tidak Lulus' AND skripsi.angkatan = '2017' ORDER BY m.nim ASC";
+                $sql = "SELECT * FROM data_mahasiswa as m, pkl
+                WHERE m.nim = pkl.nim AND pkl.status_pkl = 'Belum Mengambil' AND pkl.angkatan = '2020' ORDER BY m.nim ASC";
                 $result = $db->query($sql);
                 $nomor = 0;
 
@@ -87,8 +87,6 @@ require_once('../db_login.php');
                   ?>
               </tbody>
           </table>
-          
-      </div>
 
   <meta charset="UTF-8" />
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -106,7 +104,7 @@ require_once('../db_login.php');
    <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Data Mahasiswa Skripsi</span>
+        <span class="logo-name">Data Mahasiswa PKL</span>
       </div>
       <div class="sidebar">
         <div class="logo">
@@ -117,33 +115,27 @@ require_once('../db_login.php');
         <div class="sidebar-content">
           <ul class="lists">
             <li class="list">
-              <a href="dashboard_dept.php" class="nav-link">
+              <a href="dashboard_dosen.php" class="nav-link">
                 <i class="bx bx-home-alt icon"></i>
                 <span class="link">Home</span>
               </a>
             </li>
             
+            
             <li class="list">
-              <a href="data_dosen.php" class="nav-link">
+              <a href="data_mahasiswa.php" class="nav-link">
                 <i class="bx bx-spreadsheet icon" ></i>
-                <span class="link">Data Dosen</span>
+                <span class="link">Data Mahasiswa </span>
               </a>
             </li>
-
-            <li class="list">
-              <a href="data_skripsi.php" class="nav-link">
-                <i class="bx bx-spreadsheet icon" ></i>
-                <span class="link">Data Mahasiswa Skripsi</span>
-              </a>
-            </li>
-           
+          
             <div class="list"> 
-             <a href="data_pkl.php" class="nav-link">
+            <a href="verifikasi_data.php" class="nav-link"> 
                 <i class="bx bx-pie-chart-alt-2 icon"></i>
-                <span class="link">Data Mahasiswa PKL</span>  
+                <span class="link">Verifikasi</span>  
               </a>
               </a>
-             </div>
+            </div>
             <li class="list">
               <a href="progress.php" class="nav-link">
                 <i class="bx bx-paste icon" ></i>
@@ -151,9 +143,15 @@ require_once('../db_login.php');
               </a>
             </li>
             <li class="list">
-              <a href="rekap_data.php" class="nav-link">
+              <a href="data_pkl.php" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
-                <span class="link">Rekap Data Mahasiswa</span>
+                <span class="link">Data Mahasiswa PKL</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="data_skripsi.php" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
+                <span class="link">Data Mahasiswa Skripsi</span>
               </a>
             </li>
           </ul>
@@ -187,26 +185,39 @@ require_once('../db_login.php');
         navBar.classList.remove("open");
       });
     </script>
+    <script>
+      $(document).ready(function() {
+        $('#table').DataTable();
+      });
+    </script>
   </body>
 
    <br></br>
-   <div class="flex w-full justify-start mx-20 mt-3">
+   <div class="flex w-full justify-start mx-20 mt2">
 
-    <a href = "skripsilulus2017.php">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4 rounded-full mr-2">
-        
-        Lulus
-      </button></a>
-    
-    </body>
-    <a href = "skripsitlulus2017.php">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4  rounded-full ml-2">
+    <a href = "pkllulus2020.php">
+     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4 rounded-full mr-2">
       
-      Tidak Lulus
+      Lulus
     </button></a>
- 
+   
    </body>
-    
+   <a href = "pkltlulus2020.php">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4  rounded-full ml-2">
+     
+     Tidak Lulus
+   </button></a>
+
+   <a href = "pklbm2020.php">
+     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 p-4 rounded-full ml-2">
+      
+      Belum Mengambil
+    </button></a>
+
+  </body>
+   
+
+  </body>
+ </div>
  
-   </body>
-  </div>
+  </html>
