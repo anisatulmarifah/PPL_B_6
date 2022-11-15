@@ -174,37 +174,37 @@
      </div>
      <div class="mb-10 flex w-full justify-center items-center">
       <a
-         href="javascript:alert('still coming soon!')"
+         href="mhs2022.php"
          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
        >
          2022
        </a>
        <a
-         href="javascript:alert('still coming soon!')"
+         href="mhs2021.php"
          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
        >
          2021
        </a>
        <a
-         href="javascript:alert('still coming soon!')"
+         href="mhs2020.php"
          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
        >
          2020
        </a>
        <a
-         href="javascript:alert('still coming soon!')"
+         href="mhs2019.php"
          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
        >
          2019
        </a>
        <a
-         href="javascript:alert('still coming soon!')"
+         href="mhs2018.php"
          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
        >
          2018
        </a>
        <a
-         href="javascript:alert('still coming soon!')"
+         href="mhs2017.php"
          class="block py-2 px-8 max-w-sm bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
        >
          2017
