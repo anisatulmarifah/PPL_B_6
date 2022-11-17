@@ -123,6 +123,23 @@ $mahasiswa = $result->fetch_object();
         overlay.addEventListener("click", () => {
           navBar.classList.remove("open");
         });
+
+        const mahasiswa = document.getElementById('provinsi');
+        provinsi.addEventListener('change', function(){
+          const id_provinsi = this.value;
+          const kabupaten = document.getElementById('kabupaten');
+          kabupaten.innerHTML = '<option value="">Pilih Kabupaten</option>';
+          fetch('http://localhost/irs/kabupaten.php?id_provinsi='+id_provinsi)
+          .then(response => response.json())
+          .then(data => {
+            data.forEach(kabupaten => {
+              const option = document.createElement('option');
+              option.value = kabupaten.id;
+              option.text = kabupaten.nama;
+              kabupaten.appendChild(option);
+            });
+          });
+        });
       </script>
     </body>
     <head>
@@ -232,7 +249,7 @@ $mahasiswa = $result->fetch_object();
                     <option default>Pilih Provinsi</option>
                     <option <?= ($mahasiswa->provinsi =='JAWA BARAT') ? 'selected' : '' ?> value="JAWA BARAT">Jawa Barat</option>
                     <option <?= ($mahasiswa->provinsi =='JAWA TENGAH') ? 'selected' : '' ?> value="JAWA TENGAH">Jawa Tengah</option>
-                    <option <?= ($mahasiswa->provinsi =='JAWA TIMUR') ? 'selected' : '' ?> value="jawa timur">Jawa Timur</option>
+                    <option <?= ($mahasiswa->provinsi =='JAWA TIMUR') ? 'selected' : '' ?> value="JAWA TIMUR">Jawa Timur</option>
                     <option <?= ($mahasiswa->provinsi =='DKI JAKARTA') ? 'selected' : '' ?> value="DKI JAKARTA">DKI Jakarta</option>
                   </select>
                 </div>
