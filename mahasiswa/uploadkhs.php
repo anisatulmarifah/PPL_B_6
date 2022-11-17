@@ -7,6 +7,9 @@
 		session_start();
 		require_once('../db_login.php');
 		
+			$nim = $_SESSION['nim'];
+			$query = "SELECT * FROM data_mahasiswa WHERE nim = $nim";
+			$result = $db->query($query);
 			
 			$ekstensi_diperbolehkan	= array('pdf');
 			$nama = $_FILES['file']['name'];
@@ -17,10 +20,8 @@
 
             $semester = $_POST["semester"];
             $sks = $_POST["jumlah_sks"];
-            $ip = $_POST["ip"];
-			$nim = $_SESSION['nim'];
-			$query = "SELECT * FROM data_mahasiswa WHERE nim = $nim";
-			$result = $db->query($query);
+            $ip = $_POST["nilai_ip"];
+			
  
 			if(in_array($ekstensi, $ekstensi_diperbolehkan) == true){
 				if($ukuran < 1044070){			
@@ -39,8 +40,8 @@
     					echo '<script>window.location.href = "inputkhs.php";</script>';
 				}
 			}else{
-				echo '<script>alert("EKSTENTSI FILE TIDAK SESUAI !!!! ");</script>';
-    					echo '<script>window.location.href = "inputkhs.php";</script>';
+				// echo '<script>alert("EKSTENTSI FILE TIDAK SESUAI !!!! ");</script>';
+    			// 		echo '<script>window.location.href = "inputkhs.php";</script>';
 			}
 		
 		?>
