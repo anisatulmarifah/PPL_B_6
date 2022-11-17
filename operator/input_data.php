@@ -1,5 +1,7 @@
 <?php
-require_once ('../db_login.php');
+session_start();
+require_once('../db_login.php');
+$nip = $_SESSION['nip'];
 
 $valid = TRUE;
 if (isset($_POST["save"])){

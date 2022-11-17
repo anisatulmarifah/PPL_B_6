@@ -1,10 +1,6 @@
 <?php
 session_start();
-
 require_once('../db_login.php');
-// if (!isset($_SESSION['nip'])){
-//   header('Location: ../login.php');
-// }
 
 $nip = $_SESSION['nip'];
 
@@ -37,8 +33,7 @@ $operator = $result->fetch_object();
     <!-- Boxicons CSS -->
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
   </head>
   <body>
   <nav>

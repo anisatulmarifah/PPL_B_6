@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
 <?php
+session_start();
 require_once('../db_login.php');
+$nip = $_SESSION['nip'];
 ?>
 
 <html>

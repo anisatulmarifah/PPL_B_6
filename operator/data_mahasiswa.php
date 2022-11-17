@@ -2,7 +2,8 @@
 
 <?php
 session_start();
-require_once('../db_login.php')
+require_once('../db_login.php');
+$nip = $_SESSION['nip'];
 ?>
 <html>
 <link rel="stylesheet" href="style.css" />
