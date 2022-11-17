@@ -95,7 +95,7 @@ $dosen = $result->fetch_object();
               const myChart = new Chart(ctx, {
                 type: "bar",
                 data: {
-                  labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                  labels: ["2022", "2021", "2020", "2019", "2018", "2017"],
                   datasets: [
                     {
                       label: "# of Votes",
@@ -154,7 +154,7 @@ $dosen = $result->fetch_object();
               const myChartskripsi = new Chart(ctxx, {
                 type: "bar",
                 data: {
-                  labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                  labels: ["2022", "2021", "2020", "2019", "2018", "2017"],
                   datasets: [
                     {
                       label: "# of Votes",
