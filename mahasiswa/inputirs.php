@@ -255,7 +255,7 @@ $dosen = $result->fetch_object();
 
 
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="update_data.php" class="nav-link">
                 <i class="bx bx-spreadsheet icon"></i>
                 <span class="link">Profil</span>
               </a>
