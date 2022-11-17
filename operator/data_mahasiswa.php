@@ -163,8 +163,6 @@ require_once('../db_login.php')
                   <td class='py-4 px-6 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>".$row["status_verifikasi"]. "</td>
                   <td class='py-4 px-6 space-x-4 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
                     <a href='#' type='button' data-modal-toggle='editModal' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit  </a>
-                    <a href='#' type='button' data-modal-toggle='detailModal' class='font-medium text-green-600 dark:text-green-500 hover:underline'>Detail  </a>
-                    <button class='font-medium text-red-600 dark:text-red-500 hover:underline' type='button' data-modal-toggle='deleteModal'>Remove</button>
                   </td>
                 </tr>";
               }
@@ -400,12 +398,6 @@ require_once('../db_login.php')
           </ul>
 
           <div class="bottom-cotent">
-            <li class="list">
-              <a href="javascript:alert('still coming soon!')" class="nav-link">
-                <i class="bx bx-cog icon"></i>
-                <span class="link">Settings</span>
-              </a>
-            </li>
             <li class="list">
               <a href="../logout.php" class="nav-link">
                 <i class="bx bx-log-out icon"></i>
