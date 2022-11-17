@@ -236,7 +236,7 @@ $dosen = $result->fetch_object();
     <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Data iRS</span>
+        <span class="logo-name">Data IRS</span>
       </div>
       <div class="sidebar">
         <div class="logo">
