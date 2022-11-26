@@ -40,8 +40,8 @@
     					echo '<script>window.location.href = "inputkhs.php";</script>';
 				}
 			}else{
-				// echo '<script>alert("EKSTENTSI FILE TIDAK SESUAI !!!! ");</script>';
-    			// 		echo '<script>window.location.href = "inputkhs.php";</script>';
+				echo '<script>alert("EKSTENTSI FILE TIDAK SESUAI !!!! ");</script>';
+    					echo '<script>window.location.href = "inputkhs.php";</script>';
 			}
 		
 		?>
