@@ -1,11 +1,7 @@
+<!DOCTYPE html>
 <?php
 session_start();
-
 require_once('../db_login.php');
-// if (!isset($_SESSION['nim'])){
-//   header('Location: ../login.php');
-//sds }
-
 $nim = $_SESSION['nim'];
 
 $query = "SELECT * FROM data_mahasiswa WHERE nim = $nim";
@@ -19,8 +15,6 @@ $result = $db->query($query);
 $status = $result->fetch_object();
 
 ?>
-
-<!DOCTYPE html>
 <html>
   <link rel="stylesheet" href="style.css" />
   <head>
@@ -37,14 +31,14 @@ $status = $result->fetch_object();
     <!-- End of Navbar -->
     <div class="">
       <!-- Content -->
-      <h1 class="text-4xl mx-20 my-8 mt-24">Input Progress PKL</h1>
+      <h1 class="text-4xl mx-20 my-8 mt-20">Input Progress PKL</h1>
       <form class="w-full" method="POST" action="post_pkl.php">
         <!-- ditambah method apa dan action apa, button type diganti submit -->
         <div class="grid grid-cols-12 gap-4 mx-20 my-8">
             <div class="bg-white border shadow-xl rounded-lg p-8 col-span-8">
                 <div class="flex gap-12">
                     <div>
-                      <img class="w-32 h-32 border-2 rounded-full" src="https://data.whicdn.com/images/357926627/original.jpg" alt="foto mahasiswa"></img>
+                        <div  class="w-32 h-32 rounded-full bg-gray-500"></div>
                     </div>
                     <div class="w-full">
                         <div>
@@ -64,9 +58,9 @@ $status = $result->fetch_object();
                               name="status_pkl",
                               class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                               <option default>Pilih Status PKL</option>
-                              <option <?= ($status->status_pkl == 'Belum Mengambil') ? 'selected' : '' ?>  value="Belum Mengambil">Belum Mengambil</option>
-                              <option <?= ($status->status_pkl == 'Lulus') ? 'selected' : '' ?> value="Lulus">Lulus</option>
-                              <option <?= ($status->status_pkl == 'Tidak Lulus') ? 'selected' : '' ?> value="Tidak Lulus">Tidak Lulus</option>
+                              <option <?= ($status->status_pkl == 'belum mengambil') ? 'selected' : '' ?>  value="belum mengambil">Belum Mengambil</option>
+                              <option <?= ($status->status_pkl == 'lulus') ? 'selected' : '' ?> value="lulus">Lulus</option>
+                              <option <?= ($status->status_pkl == 'tidak lulus') ? 'selected' : '' ?> value="tidak lulus">Tidak Lulus</option>
                             </select>
                         </div>
                         <div class="">
@@ -99,18 +93,14 @@ $status = $result->fetch_object();
                             </label>
                           </div>
                         </div>
+                        
+
                 </div>
             </div>
             <div class="col-span-4">
-              <?php
-                $sql = "SELECT nilai_pkl FROM nilai WHERE nim = '$nim'";
-                $result = $db->query($query);
-
-                $nilai = $result->fetch_object()->nilai;
-              ?>
               <div class="bg-white border shadow-md rounded-lg p-14">
                   <div class="text-2xl justify-center mb-6 text-center">Nilai PKL</div>
-                  <h1 class="text-7xl justify-center text-center"><?= $nilai ?></h1>
+                  <h1 class="text-7xl justify-center text-center"><?= $status->nilai ?></h1>
               </div>
               <div class="flex justify-center mt-8">
                   <button
@@ -144,12 +134,12 @@ $status = $result->fetch_object();
       <nav>
         <div class="logo">
           <i class="bx bx-menu menu-icon"></i>
-          <span class="logo-name">Data PKL</span>
+          <span class="logo-name">Dashboard</span>
         </div>
         <div class="sidebar">
           <div class="logo">
             <i class="bx bx-menu menu-icon"></i>
-            <span class="logo-name">Universitas Diponegoro</span>
+            <span class="logo-name">SIAK</span>
           </div>
   
           <div class="sidebar-content">
@@ -169,18 +159,19 @@ $status = $result->fetch_object();
                 </a>
               </li>
              
-              <div class="list"> 
-               <a href="inputirs.php" class="nav-link"> 
-                  <i class="bx bx-pie-chart-alt-2 icon"></i>
-                  <span class="link">Data IRS</span>  
-                </a>
-                </a>
-               </div>
-              <li class="list">
-                <a href="inputkhs.php" class="nav-link">
-                  <i class="bx bx-paste icon" ></i>
-                  <span class="link">Data KHS</span>
-                </a>
+              <div class="list">
+              <a href="inputkhs.php" class="nav-link">
+                <i class="bx bx-pie-chart-alt-2 icon"></i>
+                <span class="link">Data KHS</span>
+              </a>
+              </a>
+            </div>
+            <li class="list">
+              <a href="inputirs.php" class="nav-link">
+                <i class="bx bx-paste icon"></i>
+                <span class="link">Data IRS</span>
+              </a>
+            </li>
               </li>
               <li class="list">
                 <a href="inputpkl.php" class="nav-link">
@@ -192,7 +183,7 @@ $status = $result->fetch_object();
             <li class="list">
               <a href="input_skripsi.php" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
-                <span class="link">Data Skripsi</span>
+                <span class="link">Skripsi</span>
               </a>
             </li>
           </ul>
