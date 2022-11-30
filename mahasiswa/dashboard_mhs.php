@@ -47,7 +47,7 @@ $pkl = $result->fetch_object();
         <div class="bg-white border shadow-xl mx-20 rounded-lg p-8">
           <div class="flex gap-12">
             <div>
-              <img class="w-32 h-32 border-2 rounded-full" src="https://data.whicdn.com/images/357926627/original.jpg" alt="foto mahasiswa"></img>
+              <img class="w-32 h-32 border-2 rounded-full" src="https://uwaterloo.ca/school-of-accounting-and-finance/sites/ca.school-of-accounting-and-finance/files/uploads/images/nishika_formal_square.jpg" alt="foto mahasiswa"></img>
             </div>
 
             <div class="w-full">
@@ -85,7 +85,7 @@ $pkl = $result->fetch_object();
           </div>
         </div>
 
-        <div class="grid grid-cols-12 gap-4 mx-20 mt-4">
+        <div class="grid grid-cols-12 gap-4 mx-20 mt-4 mb-6">
           <div class="bg-white border shadow-xl rounded-lg p-8 col-span-3">
             <div class="text-2xl justify-center mb-6 text-center">Semester</div>
             <h1 class="text-3xl justify-center text-center"><?= $mahasiswa->semester ?></h1>

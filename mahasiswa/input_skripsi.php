@@ -40,22 +40,19 @@ $skripsi = $result->fetch_object();
     <form class="grid grid-cols-12 gap-4 mx-28" method="POST" action="post_skripsi.php">
       <div class="p-5 col-span-8">
         <div class="bg-white shadow-md rounded-lg p-8">
-          <div class="flex items-start gap-12">
-            <div class="flex">
-            <img class="w-32 h-32 border-2 rounded-full" src="https://data.whicdn.com/images/357926627/original.jpg" alt="foto mahasiswa"></img>
-            </div>
-            <div class="w-6/12">
+          <div class="flex items-start">
+            <div class="w-full">
               <div>
                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Lengkap</label>
                 <input value="<?= $mahasiswa->nama ?>" type="text" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
               </div>
               <div>
-                <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIM</label>
+                <label class="block mt-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIM</label>
                 <input name="nim" value=<?= $nim ?> type="text" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
               </div>
               <div class="mb-2 w-full">
                   <label
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  class="block mt-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >Status Skripsi</label
                   >
                   <select

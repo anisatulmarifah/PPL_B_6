@@ -152,7 +152,7 @@ $mahasiswa = $result->fetch_object();
           <h1 class="text-3xl font-medium mb-8">Update Data</h1>
           <div class="flex items-start gap-12">
             <div class="flex">
-              <img class="w-32 h-32 border-2 rounded-full" src="https://data.whicdn.com/images/357926627/original.jpg" alt="foto mahasiswa"></img>
+              <img class="w-32 h-32 border-2 rounded-full" src="https://uwaterloo.ca/school-of-accounting-and-finance/sites/ca.school-of-accounting-and-finance/files/uploads/images/nishika_formal_square.jpg" alt="foto mahasiswa"></img>
             </div>
             <!-- Button Ganti Foto, letaknya masih salah
             <div class="flex justify-left ">

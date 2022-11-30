@@ -37,9 +37,6 @@ $status = $result->fetch_object();
         <div class="grid grid-cols-12 gap-4 mx-20 my-8">
             <div class="bg-white border shadow-xl rounded-lg p-8 col-span-8">
                 <div class="flex gap-12">
-                    <div>
-                        <div  class="w-32 h-32 rounded-full bg-gray-500"></div>
-                    </div>
                     <div class="w-full">
                         <div>
                           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Lengkap</label>
