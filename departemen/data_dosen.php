@@ -44,7 +44,7 @@ require_once('../db_login.php');
       <!-- end of search -->
     </div>
 
-    <div class="overflow-x-auto mx-20 relative shadow-md sm:rounded-lg p-6">
+    <div class="overflow-x-auto mx-20 relative sm:rounded-lg p-4">
       <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-4">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>

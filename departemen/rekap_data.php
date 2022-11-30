@@ -170,29 +170,29 @@ session_start();
       <div class="p-5 col-span-5">
         <div class="bg-white shadow-md rounded-lg p-8">
           <div class="grid grid-cols-3 gap-12">
-            <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center  items-center w-36 h-48 p-2">
+            <div class="bg-slate-200 shadow-md rounded-lg flex flex-col justify-center  items-center w-36 h-48 p-2">
               <h1 class="text-lg font-semibold">Aktif</h1>
-              <h2 class="text-5xl font-bold "><?= $AKTIF?></h2>
+              <h2 class="text-5xl font-bold my-4"><?= $AKTIF?></h2>
             </div>
-            <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
+            <div class="bg-slate-200 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
               <h1 class="text-lg font-semibold">Cuti</h1>
-              <h2 class="text-5xl font-bold "><?= $CUTI?></h2>
+              <h2 class="text-5xl font-bold my-4"><?= $CUTI?></h2>
             </div>
-            <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
+            <div class="bg-slate-200 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
               <h1 class="text-lg font-semibold">DO</h1>
-              <h2 class="text-5xl font-bold "><?= $DO?></h2>
+              <h2 class="text-5xl font-bold my-4"><?= $DO?></h2>
             </div>
-            <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
+            <div class="bg-slate-200 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
               <h1 class="text-lg font-semibold">Mangkir</h1>
-              <h2 class="text-5xl font-bold "><?= $MANGKIR?></h2>
+              <h2 class="text-5xl font-bold my-4"><?= $MANGKIR?></h2>
             </div>
-            <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
+            <div class="bg-slate-200 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
               <h1 class="text-lg font-semibold">Lulus</h1>
-              <h2 class="text-5xl font-bold "><?= $LULUS?></h2>
+              <h2 class="text-5xl font-bold my-4"><?= $LULUS?></h2>
             </div>
-            <div class="bg-slate-400 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
-              <h1 class="text-lg font-semibold">Meninggal Dunia</h1>
-              <h2 class="text-5xl font-bold "><?= $UNDURDIRI?></h2>
+            <div class="bg-slate-200 shadow-md rounded-lg flex flex-col justify-center items-center w-36 h-48 p-2">
+              <h1 class="text-lg font-semibold">Meninggal</h1>
+              <h2 class="text-5xl font-bold my-4"><?= $UNDURDIRI?></h2>
             </div>
             
           </div>
