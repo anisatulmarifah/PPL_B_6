@@ -152,11 +152,32 @@ $mahasiswa = $result->fetch_object();
                   <!-- ambil data dari database -->
                   <?php
                   $sql = "SELECT * FROM data_mahasiswa WHERE $nim=nim";
+                  $pkl = "SELECT * FROM pkl WHERE $nim=nim";
+                  $irs = "SELECT * FROM irs WHERE $nim=nim";
+                  $fileirs = "SELECT * FROM data_mahasiswa as m, irs 
+                  where m.nim=irs.nim and m.nim='$nim'
+                  and irs.semester_irs=m.semester";
+
+                  $filekhs = "SELECT * FROM data_mahasiswa as m, khs 
+                  where m.nim=khs.nim and m.nim='$nim'
+                  and khs.semester_khs=m.semester-1";
+
+                  $skripsi = "SELECT * FROM skripsi WHERE $nim=nim";
+                  
                   $result = $db->query($sql);
+                  $resultpkl = $db->query($pkl);
+                  $resultirs = $db->query($irs);
+                  $resultfileirs = $db->query($fileirs);
+                  $resultfilekhs = $db->query($filekhs);
+                  $resultskripsi = $db->query($skripsi);
+
                   $nomor = 0;
                   $row = $result->fetch_assoc();
+                  $row2 = $resultpkl->fetch_assoc();
+                  $row3 = $resultfileirs->fetch_assoc();
+                  $row4 = $resultfilekhs->fetch_assoc();
+                  $row5 = $resultskripsi->fetch_assoc();
 
-                  // $result1 = $db->query($sql1);
                   if(!$result){
                   die("Invalid query: " . $db->error);
                   }
@@ -167,7 +188,7 @@ $mahasiswa = $result->fetch_object();
                     >Nama</label
                 >
                 <input
-                    type="text" name="nama" value="<?php echo $row['nama']; ?>"
+                    type="text" name="nama" readonly value="<?php echo $row['nama']; ?>"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 />
                 </div>
@@ -178,7 +199,7 @@ $mahasiswa = $result->fetch_object();
                     >NIM</label
                     >
                     <input
-                    type="text" name="nim" value="<?php echo $row['nim']; ?>"
+                    type="text" name="nim" readonly value="<?php echo $row['nim']; ?>"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     />
                 </div>
@@ -188,25 +209,26 @@ $mahasiswa = $result->fetch_object();
                     >Semester</label
                     >
                     <input
-                    type="text" name="semester" value="<?php echo $row['semester']; ?>"
+                    type="text" name="semester" readonly value="<?php echo $row['semester']; ?>"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     />
                 </div>
                 </div>
                 <div class="flex gap-4 mb-6">
                 <div class="bg-slate-100 shadow-md rounded-lg flex justify-center items-center w-56 h-10">
-                    <div>Isian Rancangan Studi</div>
+                    <!-- <a href="datairs.php?nim=<?php echo $row['nim']; ?>" class="btn btn-primary">IRS</a> -->
+                    <a href="../mahasiswa/fileirs/<?php echo $row3['upload_file'];?>" class="btn btn-primary">IRS</a>
                 </div>
                 <div class="bg-slate-100 shadow-md rounded-lg flex justify-center items-center w-56 h-10">
-                    <div>PKL</div>
+                    <a href="../mahasiswa/filepkl/<?php echo $row2['upload_file']; ?>" class="btn btn-primary">PKL</a>
                 </div>
                 </div>
                 <div class="flex gap-4 mb-6">
                 <div class="bg-slate-100 shadow-md rounded-lg flex justify-center items-center w-56 h-10">
-                    <div>Kartu Hasil Studi</div>
+                  <a href="../mahasiswa/filekhs/<?php echo $row4['upload_file']; ?>" class="btn btn-primary">KHS</a>
                 </div>
                 <div class="bg-slate-100 shadow-md rounded-lg flex justify-center items-center w-56 h-10">
-                    <div>Skripsi</div>
+                  <a href="../mahasiswa/fileskripsi/<?php echo $row5['upload_file']; ?>" class="btn btn-primary">Skripsi</a>
                 </div>
                 </div>
             </div>

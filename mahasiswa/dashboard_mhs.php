@@ -2,9 +2,6 @@
 session_start();
 
 require_once('../db_login.php');
-// if (!isset($_SESSION['nim'])){
-//   header('Location: ../login.php');
-// }
 
 $nim = $_SESSION['nim'];
 
@@ -183,7 +180,7 @@ $pkl = $result->fetch_object();
             <li class="list">
               <a href="input_skripsi.php" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
-                <span class="link">Data Skripsi</span>
+                <span class="link">Skripsi</span>
               </a>
             </li>
           </ul>

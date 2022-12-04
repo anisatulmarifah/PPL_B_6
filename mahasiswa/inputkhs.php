@@ -57,7 +57,7 @@ $dosen = $result->fetch_object();
             require_once ("../db_login.php");
             $query="SELECT * FROM khs, data_mahasiswa as m WHERE 
             $nim = m.nim and
-            m.nim = khs.nim ";
+            m.nim = khs.nim ORDER BY semester ASC";
             //balikin nim 
             $result= $db->query($query);
 

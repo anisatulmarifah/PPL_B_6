@@ -53,7 +53,7 @@ $dosen = $result->fetch_object();
             require_once ("../db_login.php");
             $query="SELECT * FROM irs, data_mahasiswa as m WHERE 
             $nim = m.nim and
-            m.nim = irs.nim ";
+            m.nim = irs.nim  ORDER BY irs.semester_irs ASC";
             //balikin nim 
             $result= $db->query($query);
 

@@ -19,29 +19,58 @@
 
             $semester = $_POST["semester"];
             $sks = $_POST["jumlah_sks"];
-            
 
- 
-			if(in_array($ekstensi, $ekstensi_diperbolehkan) == true){
-				if($ukuran < 1044070){			
-					move_uploaded_file($file_tmp, 'fileirs/'.$nama);
-					$query = $db->query("INSERT INTO irs VALUES($nim, $semester, $sks, '$nama')");
-					if($query){
-						echo '<script>alert("Data berhasil diupdate");</script>';
-    					echo '<script>window.location.href = "inputirs.php";</script>';
-                        
+
+			//check wether the POST semester is already in semester column or not
+
+			$query2 = "SELECT * FROM data_mahasiswa WHERE nim = $nim AND semester = $semester";
+			$result2 = $db->query($query2);
+			if ($result2->num_rows > 0) {
+				if(in_array($ekstensi, $ekstensi_diperbolehkan) == true){
+					if($ukuran < 1044070){			
+						move_uploaded_file($file_tmp, 'fileirs/'.$nama);
+						$query = $db->query("UPDATE irs SET upload_file = '$nama', jumlah_sks = $sks WHERE nim = '$nim' and semester_irs = $semester");
+						if($query){
+							echo '<script>alert("Data berhasil diupdate");</script>';
+							echo '<script>window.location.href = "inputirs.php";</script>';
+							
+						}else{
+							echo '<script>alert("GAGAL MENGUPLOAD FILE");</script>';
+							echo '<script>window.location.href = "inputirs.php";</script>';
+						}
 					}else{
-						echo '<script>alert("GAGAL MENGUPLOAD FILE");</script>';
-    					echo '<script>window.location.href = "inputirs.php";</script>';
+						echo '<script>alert("UKURAN FILE TERLALU BESAR");</script>';
+							echo '<script>window.location.href = "inputirs.php";</script>';
 					}
 				}else{
-					echo '<script>alert("UKURAN FILE TERLALU BESAR");</script>';
-    					echo '<script>window.location.href = "inputirs.php";</script>';
+					echo '<script>alert("EKSTENTSI FILE TIDAK SESUAI !!!! ");</script>';
+							echo '<script>window.location.href = "inputirs.php";</script>';
 				}
-			}else{
-				echo '<script>alert("EKSTENTSI FILE TIDAK SESUAI !!!! ");</script>';
-    					echo '<script>window.location.href = "inputirs.php";</script>';
-			}
+			
+				echo '<script>alert("Data berhasil diupdate");</script>';
+				echo '<script>window.location.href = "inputtranskrip.php";</script>';
+			} else {
+				if(in_array($ekstensi, $ekstensi_diperbolehkan) == true){
+					if($ukuran < 1044070){			
+						move_uploaded_file($file_tmp, 'fileirs/'.$nama);
+						$query = $db->query("INSERT INTO irs VALUES($nim, $semester, $sks, '$nama')");
+						if($query){
+							echo '<script>alert("Data berhasil diupdate");</script>';
+							echo '<script>window.location.href = "inputirs.php";</script>';
+							
+						}else{
+							echo '<script>alert("GAGAL MENGUPLOAD FILE");</script>';
+							echo '<script>window.location.href = "inputirs.php";</script>';
+						}
+					}else{
+						echo '<script>alert("UKURAN FILE TERLALU BESAR");</script>';
+							echo '<script>window.location.href = "inputirs.php";</script>';
+					}
+				}else{
+					echo '<script>alert("EKSTENTSI FILE TIDAK SESUAI !!!! ");</script>';
+							echo '<script>window.location.href = "inputirs.php";</script>';
+				}
+		}
 		
 		?>
  
