@@ -32,41 +32,43 @@ $status = $result->fetch_object();
     <div class="">
       <!-- Content -->
       <h1 class="text-4xl mx-20 my-8 mt-20">Input Progress PKL</h1>
-      <form class="w-full" method="POST" action="post_pkl.php">
-        <!-- ditambah method apa dan action apa, button type diganti submit -->
+      <form method="POST" action="update_pkl.php" enctype="multipart/form-data" class="w-full">
         <div class="grid grid-cols-12 gap-4 mx-20 my-8">
             <div class="bg-white border shadow-xl rounded-lg p-8 col-span-8">
                 <div class="flex gap-12">
+                    <div>
+                        <div  class="w-32 h-32 rounded-full bg-gray-500"></div>
+                    </div>
                     <div class="w-full">
-                        <div>
-                          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Lengkap</label>
-                          <input value="<?= $mahasiswa->nama ?>" type="text" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-                        </div>
-                        <div>
-                          <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIM</label>
-                          <input name="nim" value=<?= $nim ?> type="text" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-                        </div>
-                        <div class="">
-                            <label
-                              class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                              >Status PKL</label>
-                            <select
-                              id='status_pkl'
-                              name="status_pkl",
-                              class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                              <option default>Pilih Status PKL</option>
-                              <option <?= ($status->status_pkl == 'Belum Mengambil') ? 'selected' : '' ?>  value="Belum Mengambil">Belum Mengambil</option>
+                      <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Lengkap</label>
+                        <input value="<?= $mahasiswa->nama ?>" type="text" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                      </div>
+                      <div>
+                        <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIM</label>
+                        <input name="nim" value=<?= $nim ?> type="text" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                      </div>
+                      <div class="">
+                          <label
+                            class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >Status PKL</label>
+                          <select
+                            id='status_pkl'
+                            name="status_pkl",
+                            class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option default>Pilih Status PKL</option>
+                            <option <?= ($status->status_pkl == 'Belum Mengambil') ? 'selected' : '' ?>  value="Belum Mengambil">Belum Mengambil</option>
                             <option <?= ($status->status_pkl == 'Lulus') ? 'selected' : '' ?> value="Lulus">Lulus</option>
                             <option <?= ($status->status_pkl == 'Tidak Lulus') ? 'selected' : '' ?> value="Tidak Lulus">Tidak Lulus</option>
-                            </select>
+                          </select>
                         </div>
-                        <div class="">
-                            <label
-                              class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                              >Nilai PKL</label>
-                            <select
-                              id='nilai_pkl'
-                              name="nilai_pkl",
+                      <div class="">
+                          <label
+                            class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >Nilai PKL</label>
+                          <select
+                              id='nilai'
+                              name="nilai",
                               class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                               <option default>Pilih Nilai PKL</option>
                               <option <?= ($status->nilai == 'A') ? 'selected' : '' ?> value="A">A</option>
@@ -75,36 +77,26 @@ $status = $result->fetch_object();
                               <option <?= ($status->nilai == 'D') ? 'selected' : '' ?> value="D">D</option>
                               <option <?= ($status->nilai == 'E') ? 'selected' : '' ?> value="E">E</option>
                             </select>
-                        </div>
+                      </div>
                           <div class="justify-center items-center w-full">
-                            <label
-                              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                              >Upload Berita Acara PKL</label>
-                            <label for="dropzone-file" class="flex flex-col justify-center items-center w-full h-64 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                <div class="flex flex-col justify-center items-center pt-5 pb-6">
-                                    <svg aria-hidden="true" class="mb-3 w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                                </div>
-                                <input id="dropzone-file" type="file" class="hidden" />
-                            </label>
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Upload Berita Acara PKL</label>
+                            <input id="upload-file" name="file" required class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">berita_acara_nim.pdf</p>
                           </div>
                         </div>
-                        
-
                 </div>
             </div>
             <div class="col-span-4">
-              <div class="bg-white border shadow-md rounded-lg p-14">
-                  <div class="text-2xl justify-center mb-6 text-center">Nilai PKL</div>
-                  <h1 class="text-7xl justify-center text-center"><?= $status->nilai ?></h1>
-              </div>
-              <div class="flex justify-center mt-8">
-                  <button
-                    type="submit"
-                    class="mb-6 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                    Save</button>
-              </div>
+                <div class="bg-white border shadow-md rounded-lg p-14">
+                    <div class="text-2xl justify-center mb-6 text-center">Nilai PKL</div>
+                    <h1 class="text-7xl justify-center text-center"><?= $status->nilai ?></h1>
+                </div>
+                <div class="flex justify-center mt-8">
+                    <button
+                      type="submit"
+                      class="mb-6 text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-sm px-12 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                      Save</button>
+                </div>
             </div>
         </div>
 
@@ -217,11 +209,11 @@ $status = $result->fetch_object();
         const status = document.getElementById('status_pkl');
         function refreshFormState() {
           if (status.selectedIndex == 1) {
-            document.getElementById('nilai_pkl').disabled = true;
-            document.getElementById('dropzone-file').disabled = true;
+            document.getElementById('nilai').disabled = true;
+            document.getElementById('upload-file').disabled = true;
           } else {
-            document.getElementById('nilai_pkl').disabled = false;
-            document.getElementById('dropzone-file').disabled = false;
+            document.getElementById('nilai').disabled = false;
+            document.getElementById('upload-file').disabled = false;
           }
         }
         status.addEventListener('change', refreshFormState);

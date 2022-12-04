@@ -37,17 +37,24 @@ $skripsi = $result->fetch_object();
     <!-- Content -->
     
     <h1 class="text-4xl font-medium mt-24 mx-32 mb-2 my-8">Input Progress Skripsi</h1>
-    <form class="grid grid-cols-12 gap-4 mx-28" method="POST" action="post_skripsi.php">
+    <form class="grid grid-cols-12 gap-4 mx-28" method="POST" action="update_skripsi.php" enctype="multipart/form-data">
       <div class="p-5 col-span-8">
         <div class="bg-white shadow-md rounded-lg p-8">
-          <div class="flex items-start">
-            <div class="w-full">
+          <div class="flex items-start gap-12">
+            <div class="bg-white shadow-md rounded-lg flex justify-center items-center w-36 h-48">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-20 h-20">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+              </svg>
+            </div>
+            <div class="w-6/12">
               <div>
                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Lengkap</label>
                 <input value="<?= $mahasiswa->nama ?>" type="text" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
               </div>
               <div>
-                <label class="block mt-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIM</label>
+                <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIM</label>
                 <input name="nim" value=<?= $nim ?> type="text" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
               </div>
               <div class="mb-2 w-full">
@@ -70,7 +77,7 @@ $skripsi = $result->fetch_object();
                 >Nilai Skripsi</label
                 >
                 <select
-                  id="nilai_skripsi" name="nilai_skripsi",
+                  id="nilai" name="nilai",
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                   <option default>Pilih Nilai Skripsi</option>
@@ -120,16 +127,9 @@ $skripsi = $result->fetch_object();
       <div class="p-5 col-span-4">
         <div class="bg-white shadow-md rounded-lg p-8">
           <h1 class="text-xl text-center font-medium mb-8">Upload Berita Acara Sidang Skripsi</h1>
-          <div class="flex justify-center items-center w-full">
-            <label for="dropzone-file" class="flex flex-col justify-center items-center w-full h-64 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                <div class="flex flex-col justify-center items-center pt-5 pb-6">
-                    <svg aria-hidden="true" class="mb-3 w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                </div>
-                <input id="dropzone-file" type="file" class="hidden" />
-            </label>
-          </div>
+          <div class="justify-center items-center w-full">
+            <input id="upload-file" name="file" required class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">berita_acara_nim.pdf</p>
         </div>
         <div class="flex justify-end mt-8">
           <button type="submit"
@@ -159,12 +159,12 @@ $skripsi = $result->fetch_object();
     <nav>
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
-        <span class="logo-name">Data Skripsi</span>
+        <span class="logo-name">Dashboard</span>
       </div>
       <div class="sidebar">
         <div class="logo">
           <i class="bx bx-menu menu-icon"></i>
-          <span class="logo-name">Universitas Diponegoro</span>
+          <span class="logo-name">SIAK</span>
         </div>
 
         <div class="sidebar-content">
@@ -207,12 +207,18 @@ $skripsi = $result->fetch_object();
           <li class="list">
             <a href="input_skripsi.php" class="nav-link">
               <i class="bx bx-folder-open icon"></i>
-              <span class="link">Data Skripsi</span>
+              <span class="link">Skripsi</span>
             </a>
           </li>
         </ul>
 
           <div class="bottom-cotent">
+            <li class="list">
+              <a href="javascript:alert('still coming soon!')" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link">Settings</span>
+              </a>
+            </li>
             <li class="list">
               <a href="../logout.php" class="nav-link">
                 <i class="bx bx-log-out icon"></i>
