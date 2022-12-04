@@ -23,13 +23,13 @@
 
 			//check wether the POST semester is already in semester column or not
 
-			$query2 = "SELECT * FROM data_mahasiswa WHERE nim = $nim AND semester = $semester";
-			$result2 = $db->query($query2);
-			if ($result2->num_rows > 0) {
+			$query1 = "SELECT * FROM irs WHERE nim = $nim AND semester_irs = $semester";
+			$result1 = $db->query($query1);
+			if ($result1->num_rows > 0) {
 				if(in_array($ekstensi, $ekstensi_diperbolehkan) == true){
 					if($ukuran < 1044070){			
 						move_uploaded_file($file_tmp, 'fileirs/'.$nama);
-						$query = $db->query("UPDATE irs SET upload_file = '$nama', jumlah_sks = $sks WHERE nim = '$nim' and semester_irs = $semester");
+						$query = $db->query("UPDATE irs SET upload_file = '$nama', jumlah_sks = '$sks' WHERE nim = $nim and semester_irs = $semester");
 						if($query){
 							echo '<script>alert("Data berhasil diupdate");</script>';
 							echo '<script>window.location.href = "inputirs.php";</script>';
@@ -46,9 +46,6 @@
 					echo '<script>alert("EKSTENTSI FILE TIDAK SESUAI !!!! ");</script>';
 							echo '<script>window.location.href = "inputirs.php";</script>';
 				}
-			
-				echo '<script>alert("Data berhasil diupdate");</script>';
-				echo '<script>window.location.href = "inputtranskrip.php";</script>';
 			} else {
 				if(in_array($ekstensi, $ekstensi_diperbolehkan) == true){
 					if($ukuran < 1044070){			
@@ -68,9 +65,9 @@
 					}
 				}else{
 					echo '<script>alert("EKSTENTSI FILE TIDAK SESUAI !!!! ");</script>';
-							echo '<script>window.location.href = "inputirs.php";</script>';
+					echo '<script>window.location.href = "inputirs.php";</script>';
 				}
-		}
+			}
 		
 		?>
  
@@ -87,7 +84,7 @@
 			?>
 			<tr>
 				<td>
-					<img src="<?php echo "file/".$d['nama_file']; ?>">
+					<img src="<?php echo "fileirs/".$d['nama_file']; ?>">
 				</td>		
 			</tr>
 			<?php } ?>
