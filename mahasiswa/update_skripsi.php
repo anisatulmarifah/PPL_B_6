@@ -10,7 +10,7 @@ $lama_studi = $_POST["lama_studi"];
 $tanggal_sidang = $_POST["tanggal_sidang"];
 
 $ekstensi_diperbolehkan = array("svg", "png", "jpg", "pdf");
-$nama = $_FILES['file']['name'];
+$nama = $_SESSION['nim'] . "_" . 'Skripsi.pdf';
 $x = explode('.', $nama);
 $ekstensi = strtolower(end($x));
 $ukuran = $_FILES['file']['size'];
