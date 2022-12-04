@@ -223,14 +223,14 @@ $dosen = $result->fetch_object();
             <li class="list">
               <a href="input_skripsi.php" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
-                <span class="link">Data Skripsi</span>
+                <span class="link">Skripsi</span>
               </a>
             </li>
           </ul>
 
           <div class="bottom-cotent">
             <li class="list">
-              <a href="../logout.phpphp" class="nav-link">
+              <a href="../logout.php" class="nav-link">
                 <i class="bx bx-log-out icon"></i>
                 <span class="link">Logout</span>
               </a>
