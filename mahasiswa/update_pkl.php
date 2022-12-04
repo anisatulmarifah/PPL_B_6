@@ -13,14 +13,15 @@ $result = $db->query($query);
 if ($_POST['status_pkl'] == 'Belum Mengambil'){
   if ($result->num_rows > 0) {
     // Data udah ada, berarti update
-    $query = "UPDATE pkl SET status_pkl = '$status_pkl' WHERE nim = $nim";
+    $query = "UPDATE pkl SET status_pkl = '$status_pkl', nilai = ' ' WHERE nim = $nim";
     $result = $db->query($query);
   
     echo '<script>alert("Data berhasil diupdate");</script>';
     echo '<script>window.location.href = "inputpkl.php";</script>';
   } else {
     // Data blm ada, berarti insert
-    $query = "INSERT INTO pkl (nim, status_pkl) VALUES ($nim, '$status_pkl')";
+    $nilai = $_POST["nilai"];
+    $query = "INSERT INTO pkl (nim, status_pkl, nilai) VALUES ($nim, '$status_pkl', '$nilai')";
     $db->query($query);
   
     echo '<script>alert("Data berhasil ditambahkan");</script>';
